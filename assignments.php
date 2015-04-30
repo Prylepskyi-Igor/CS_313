@@ -12,7 +12,6 @@
         </header>
         
         <main>
-        	<img id="mypic" src="my-picture.jpg">
         	<table>
                 <ul>
                     <li>Assignment 1</li>
