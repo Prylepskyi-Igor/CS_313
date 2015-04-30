@@ -25,7 +25,6 @@ function snowflake(){
         elementImg.setAttributeNode(att);
         // set element's style to the fixed position
         elementImg.style.position = "fixed";
-        alert('Start!');
         // set element's top style value
         elementImg.style.top = String(this.verticalPosition) + "px";
         // set element's left style value
@@ -34,6 +33,7 @@ function snowflake(){
         elementImg.style.width = String(this.width) + "px";
         // set element's height style value
         elementImg.style.height = String(this.height) + "px";
+        alert('Start!');
     }
     
     this.movePoint = function(num){

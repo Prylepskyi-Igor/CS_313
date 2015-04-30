@@ -17,10 +17,12 @@
 
                     // create snowflakes
                     for(var i = 0; i < numSnowflakes; i++){
-                    alert('Start!');
                         snow = new snowflake();
+                        alert('1');
                         snowflakes.push(snow);
+                        alert('2');
                         snowflakes[i].createSnowflake(i);
+                        alert('3');
                     }
 
                     // move snowflakes
