@@ -15,19 +15,18 @@ function snowflake(){
         // create element
         var elementImg = document.createElement("img");
         document.getElementById('snowflakeContainer').appendChild(elementImg);
-        alert('1');
         //create variable that contains path
         elementImg = document.getElementsByTagName("img")[num + 1];
         // create element "src" attribute
         var att = document.createAttribute("src");
         // give it a value
         att.value = "snowflake.png";
-        alert('2');
+        alert('1');
         // assign it to the element
         elementImg.setAttributeNode(att);
+        alert('2');
         // set element's style to the fixed position
         elementImg.style.position = "fixed";
-        alert('3');
         // set element's top style value
         elementImg.style.top = String(this.verticalPosition) + "px";
         // set element's left style value
