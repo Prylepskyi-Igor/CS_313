@@ -2,6 +2,11 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <script>
+    	function changeFont(x) {
+    		x.style.changeFont = "50px";
+    	}
+    </script>
     <link rel="stylesheet" type="text/css" href="style.css" 
               media="screen">
     <title>Intro</title>
@@ -17,7 +22,7 @@
         </main>
 
         <footer class="page_footer">
-            <a class="page_footer" href="assignments.php">To assignments page</a>
+            <a class="page_footer" href="assignments.php" onmouseover="changeFont(this);">To assignments page</a>
         </footer>
     </body>
 </html>
