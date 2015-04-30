@@ -20,7 +20,7 @@ function snowflake(){
         // create element "src" attribute
         var att = document.createAttribute("src");
         // give it a value
-        att.value = "snowflake.png";
+        att.value = "C:\Users\Megiddo\php\snowflake.png";
         alert('1');
         // assign it to the element
         elementImg.setAttributeNode(att);
