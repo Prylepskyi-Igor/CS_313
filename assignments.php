@@ -7,8 +7,8 @@
     <title>Assignments</title>
 </head>
     <body>
-        <header id="page_header">
-            <h1>Web Engineering II Assignments</h1>
+        <header class="page_header">
+            <h1 class="page_header">Web Engineering II Assignments</h1>
         </header>
         
         <main>

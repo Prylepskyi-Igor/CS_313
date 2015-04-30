@@ -7,8 +7,8 @@
     <title>Assignments</title>
 </head>
     <body>
-        <header id="page_header">
-            <h1>Assignment 1</h1>
+        <header class="page_header">
+            <h1 class="page_header">Assignment 1</h1>
         </header>
         
         <main>

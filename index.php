@@ -8,7 +8,7 @@
 </head>
     <body>
         <header class="page_header">
-            <h1>Introduction</h1>
+            <h1 class="page_header">Introduction</h1>
         </header>
         
         <main>
