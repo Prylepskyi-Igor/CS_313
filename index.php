@@ -13,12 +13,13 @@
                     var element;
                     var att;
                     var snow;
-                    var numSnowflakes = 400;
+                    var numSnowflakes = 100;
                     // create snowflakes
                     for(var i = 0; i < numSnowflakes; i++){
                         snow = new snowflake();
                         snowflakes.push(snow);
-                        snowflakes[i].createSnowflake(i);}
+                        snowflakes[i].createSnowflake(i);
+                    }
                     // move snowflakes
                     setInterval(function(){
                         for(var i = 0; i < numSnowflakes; i++)
@@ -27,14 +28,15 @@
                                 ">
         <header id="page_header">   
             <?php /*include $_SERVER['DOCUMENT_ROOT'] . '/modules/header.html';*/  ?> 
-            <h1></h1>
+            <h1>Header</h1>
         </header>
         
         <main>
+        	<p>Body</p>
             <span id='snowflakeContainer'></span>
         </main>
         <footer id="page_footer">
-            
+            <p>Footer</p>
         </footer>
     </body>
 </html>
