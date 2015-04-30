@@ -7,7 +7,7 @@
     <title>Intro</title>
 </head>
     <body>
-        <header id="page_header">
+        <header class="page_header">
             <h1>Introduction</h1>
         </header>
         
