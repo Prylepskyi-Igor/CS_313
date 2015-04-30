@@ -20,11 +20,9 @@ function snowflake(){
         // create element "src" attribute
         var att = document.createAttribute("src");
         // give it a value
-        att.value = "/snowflake.png";
-        alert('1');
+        att.value = "snowflake.png";
         // assign it to the element
         elementImg.setAttributeNode(att);
-        alert('2');
         // set element's style to the fixed position
         elementImg.style.position = "fixed";
         // set element's top style value
