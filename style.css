@@ -10,10 +10,10 @@
 }
 
 #mypic {
-	width: 60%;
-	height: 60%;
+	width: 120px;
+	height: 120px;
 }
 
 p {
-	text-align: left;
+	float: left;
 }
