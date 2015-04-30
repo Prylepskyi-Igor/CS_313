@@ -12,7 +12,7 @@
         </header>
         
         <main>
-        	<p>Body</p>
+        	<img id="mypic" src="my-picture.jpg">
         </main>
         <footer id="page_footer">
             <p>Footer</p>
