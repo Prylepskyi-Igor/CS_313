@@ -5,7 +5,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="Igor Prylepskyi">
-    <script src="C:\Users\Megiddo\php\snowflake.js"></script>
+    <script src="snowflake.js"></script>
     <title>Project</title>
 </head>
     <body onload="
