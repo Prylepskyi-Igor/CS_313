@@ -7,10 +7,10 @@
               media="screen">
     <script>
 		$(document).ready(function(){
-		    $("footer").hover(function(){
-		        $("footer").css("color", "red");
+		    $("a").hover(function(){
+		        $("a").css("color", "red");
 		        },function(){
-		        $("footer").css("color", "green");
+		        $("a").css("color", "green");
 		    });
 		});
 	</script>
