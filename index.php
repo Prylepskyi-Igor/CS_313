@@ -28,7 +28,7 @@
                 // create element "src" attribute
                 var att = document.createAttribute("src");
                 // give it a value
-                att.value = "C:\Users\Megiddo\php\snowflake.png";
+                att.value = "snowflake.png";
                 // assign it to the element
                 elementImg.setAttributeNode(att);
                 // set element's style to the fixed position
@@ -104,7 +104,7 @@
                     var element;
                     var att;
                     var snow;
-                    var numSnowflakes = 400;
+                    var numSnowflakes = 100;
                     // create snowflakes
                     for(var i = 0; i < numSnowflakes; i++){
                         snow = new snowflake();
