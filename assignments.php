@@ -14,14 +14,13 @@
         <main>
         	<table>
                 <ul>
-                    <li>Assignment 1</li>
-                    <li>Assignment 2</li>
+                    <li><a href="assignment1.php">Assignment 1</a></li>
                 </ul>
             </table>
         </main>
 
         <footer class="page_footer">
-            <a class="page_footer" href="index.php">introduction</a>
+            <a class="page_footer" href="index.php">Back to introduction page</a>
         </footer>
     </body>
 </html>

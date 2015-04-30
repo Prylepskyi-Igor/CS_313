@@ -4,20 +4,19 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style.css" 
               media="screen">
-    <title>Intro</title>
+    <title>Assignments</title>
 </head>
     <body>
         <header id="page_header">
-            <h1>Introduction</h1>
+            <h1>Assignment 1</h1>
         </header>
         
         <main>
-        	<img id="mypic" src="my-picture.jpg">
-        	<p>My name is Igor. I'm from Ukraine. I'm Senior in Software Engineering.</p>
+        	<p>Coming soon</p>
         </main>
 
         <footer class="page_footer">
-            <a class="page_footer" href="assignments.php">To assignments page</a>
+            <a class="page_footer" href="assignments.php">Back to assignments page</a>
         </footer>
     </body>
 </html>
