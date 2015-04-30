@@ -14,12 +14,15 @@
                     var att;
                     var snow;
                     var numSnowflakes = 100;
+
                     // create snowflakes
                     for(var i = 0; i < numSnowflakes; i++){
+                    alert('Start!');
                         snow = new snowflake();
                         snowflakes.push(snow);
                         snowflakes[i].createSnowflake(i);
                     }
+
                     // move snowflakes
                     setInterval(function(){
                         for(var i = 0; i < numSnowflakes; i++)
