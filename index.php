@@ -31,7 +31,6 @@
         </header>
         
         <main>
-                <img src="snowflake.png">
             <span id='snowflakeContainer'></span>
         </main>
         <footer id="page_footer">
