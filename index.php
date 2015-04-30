@@ -5,15 +5,15 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" 
               media="screen">
-              <script>
-	$(document).ready(function(){
-	    $("footer").hover(function(){
-	        $("footer").css("font-size", "30px");
-	        },function(){
-	        $("footer").css("font-size", "50px");
-	    });
-	});
-</script>
+    <script>
+		$(document).ready(function(){
+		    $("footer").hover(function(){
+		        $("footer").css("color", "blue");
+		        },function(){
+		        $("footer").css("color", "red");
+		    });
+		});
+	</script>
     <title>Intro</title>
 </head>
     <body>
