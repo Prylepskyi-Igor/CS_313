@@ -8,9 +8,9 @@
     <script>
 		$(document).ready(function(){
 		    $("a").hover(function(){
-		        $("a").css("color", "red");
-		        },function(){
 		        $("a").css("color", "green");
+		        },function(){
+		        $("a").css("color", "black");
 		    });
 		});
 	</script>

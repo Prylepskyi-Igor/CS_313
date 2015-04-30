@@ -5,6 +5,15 @@
     <link rel="stylesheet" type="text/css" href="style.css" 
               media="screen">
     <title>Assignments</title>
+    <script>
+        $(document).ready(function(){
+            $("a").hover(function(){
+                $("a").css("color", "green");
+                },function(){
+                $("a").css("color", "black");
+            });
+        });
+    </script>
 </head>
     <body>
         <header class="page_header">
