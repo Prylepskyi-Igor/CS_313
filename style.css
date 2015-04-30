@@ -12,5 +12,8 @@
 #mypic {
 	width: 120px;
 	height: 120px;
-	float: left;
+}
+
+body {
+	background-color: grey;
 }
