@@ -17,6 +17,8 @@
                     var numSnowflakes = 400;
                     // create snowflakes
                     for(var i = 0; i < numSnowflakes; i++){
+                    alert('Start!');
+
                         snow = new snowflake();
                         snowflakes.push(snow);
                         snowflakes[i].createSnowflake(i);}
@@ -32,7 +34,7 @@
         </header>
         
         <main>
-                <img src="/pictures/moon.png">
+                <img src="C:\Users\Megiddo\php\snowflake.png">
             <span id='snowflakeContainer'></span>
         </main>
         <footer id="page_footer">
