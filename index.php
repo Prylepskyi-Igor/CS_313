@@ -100,6 +100,7 @@
     <title>Project</title>
 </head>
     <body onload="
+    alert("Start!");
                     var snowflakes = [];
                     var element;
                     var att;
