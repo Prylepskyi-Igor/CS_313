@@ -2,13 +2,18 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <script>
-    	function changeFont(x) {
-    		x.style.changeFont = "50px";
-    	}
-    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" 
               media="screen">
+              <script>
+	$(document).ready(function(){
+	    $("footer").hover(function(){
+	        $("footer").css("font-size", "30px");
+	        },function(){
+	        $("footer").css("font-size", "50px");
+	    });
+	});
+</script>
     <title>Intro</title>
 </head>
     <body>
@@ -22,7 +27,7 @@
         </main>
 
         <footer class="page_footer">
-            <a class="page_footer" href="assignments.php" onmouseover="changeFont(this);">To assignments page</a>
+            <a class="page_footer" href="assignments.php">To assignments page</a>
         </footer>
     </body>
 </html>
