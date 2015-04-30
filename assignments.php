@@ -20,8 +20,8 @@
             </table>
         </main>
 
-        <footer id="page_footer">
-            <a href="index.php">introduction</a>
+        <footer class="page_footer">
+            <a class="page_footer" href="index.php">introduction</a>
         </footer>
     </body>
 </html>

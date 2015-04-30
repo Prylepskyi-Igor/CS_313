@@ -16,8 +16,8 @@
         	<p>My name is Igor. I'm from Ukraine. I'm Senior in Software Engineering.</p>
         </main>
 
-        <footer id="page_footer">
-            <a href="assignments.php">assignments</a>
+        <footer class="page_footer">
+            <a class="page_footer" href="assignments.php">assignments</a>
         </footer>
     </body>
 </html>
