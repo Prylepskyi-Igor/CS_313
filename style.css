@@ -7,6 +7,9 @@
 	font-size: 30px;
 	text-align: center;
 	color: black;
+	position: fixed;
+	left: 50%;
+	right: 50%;
 }
 
 #mypic {
@@ -23,6 +26,5 @@ td {
 }
 
 #assignments > td > a {
-	font-size: 25px;
-	text-align: center;
+	float: center;
 }
