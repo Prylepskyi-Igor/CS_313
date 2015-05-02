@@ -17,3 +17,7 @@
 body {
 	background-color: grey;
 }
+
+td {
+	margin: 30px;
+}
