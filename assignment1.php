@@ -8,7 +8,7 @@
     <title>Assignments</title>
     <script>
         $(document).ready(function(){
-            $("a").hover(function(){
+            $("footer > a").hover(function(){
                 $("a").css("color", "green");
                 },function(){
                 $("a").css("color", "black");
