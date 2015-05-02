@@ -8,8 +8,8 @@
 	text-align: center;
 	color: black;
 	position: fixed;
-	left: 50%;
-	right: 50%;
+	left: 40%;
+	right: 40%;
 }
 
 #mypic {
@@ -23,8 +23,4 @@ body {
 
 td {
 	padding: 30px;
-}
-
-#assignments > td > a {
-	float: center;
 }
