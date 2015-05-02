@@ -4,11 +4,14 @@
 }
 
 .page_footer {
+	background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+
 	font-size: 30px;
-	text-align: center;
 	color: black;
-	position: fixed;
-	bottom: 0;
 }
 
 #mypic {
