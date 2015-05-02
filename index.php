@@ -7,7 +7,7 @@
               media="screen">
     <script>
 		$(document).ready(function(){
-		    $("footer").$("a").hover(function(){
+		    $("footer > a").hover(function(){
 		        $("a").css("color", "green");
 		        },function(){
 		        $("a").css("color", "black");
