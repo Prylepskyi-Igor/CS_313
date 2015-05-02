@@ -8,6 +8,8 @@
     bottom: 0;
     position: fixed;
     text-align: center;
+    left: 40%;
+    right: 40%;
 
 	font-size: 30px;
 	color: black;
