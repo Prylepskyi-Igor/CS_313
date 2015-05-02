@@ -22,10 +22,10 @@
         </header>
         
         <main>
-        	<table>
-                <ul>
-                    <li><a href="assignment1.php">Assignment 1</a></li>
-                </ul>
+        	<table id="assignments">
+                <td>
+                    <a href="assignment1.php">Assignment 1</a>
+                </td>
             </table>
         </main>
 
