@@ -7,7 +7,7 @@
               media="screen">
     <script>
 		$(document).ready(function(){
-		    $("a").hover(function(){
+		    $("footer").$("a").hover(function(){
 		        $("a").css("color", "green");
 		        },function(){
 		        $("a").css("color", "black");
@@ -27,7 +27,7 @@
         			<img id="mypic" src="my-picture.jpg">
         		</td>
         		<td>
-        			<p>My name is Igor. I'm from Ukraine. I'm Senior in Software Engineering.</p>
+        			<p>My name is Igor. I'm from Ukraine. I'm Senior in Software Engineering. I graduate in December 2015.</p>
         		</td>
         	</table>
         </main>
