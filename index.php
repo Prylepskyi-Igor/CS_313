@@ -22,8 +22,14 @@
         </header>
         
         <main>
-        	<img id="mypic" src="my-picture.jpg">
-        	<p>My name is Igor. I'm from Ukraine. I'm Senior in Software Engineering.</p>
+        	<table>
+        		<td>
+        			<img id="mypic" src="my-picture.jpg">
+        		</td>
+        		<td>
+        			<p>My name is Igor. I'm from Ukraine. I'm Senior in Software Engineering.</p>
+        		</td>
+        	</table>
         </main>
 
         <footer class="page_footer">
