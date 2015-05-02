@@ -21,3 +21,8 @@ body {
 td {
 	padding: 30px;
 }
+
+#assignments > td > a {
+	font-size: 25px;
+	text-align: center;
+}
