@@ -13,6 +13,8 @@
 <!DOCTYPE html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+		<link rel="stylesheet" type="text/css" href="style.css" 
+              media="screen">
 		<title>Igor Prylepskyi - CS 313</title>
 	</head>
 	<body>
@@ -29,9 +31,9 @@
 		</div>
 
 			Welcome <?php echo $name; ?><br><br>
-			Your email address is: <?php echo "mailto:". $email; ?><br><br>
+			Your email address is: <?php echo <a href='mailto: $email'>; ?><br><br>
 			Your major is: <?php echo $major; ?><br><br>
-			The places you have visited: <?php if (isset($_POST['places'])) {$place = $_POST['places']; foreach($place as $key => $value) { echo $value . " ";} } else { echo 'No places selected.'; } ?><br><br>
+			The places you have visited: <?php if (isset($_POST['places'])) {$place = $_POST['places']; foreach($place as $key => $value) { echo $value . ", ";} } else { echo 'No places selected.'; } ?><br><br>
 			Your comments: <?php echo $comment; ?>
 
 		<footer id="footer">

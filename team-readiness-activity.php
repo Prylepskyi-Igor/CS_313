@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+		<link rel="stylesheet" type="text/css" href="style.css" 
+              media="screen">
 		<title>Igor Prylepskyi - CS 313</title>
 	</head>
 	<body>
