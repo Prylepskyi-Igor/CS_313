@@ -31,7 +31,7 @@
 		</div>
 
 			Welcome <?php echo $name; ?><br><br>
-			Your email address is: <?php echo <a href='mailto: $email'>; ?><br><br>
+			Your email address is: <?php echo "<a href='mailto: $email'>"; ?><br><br>
 			Your major is: <?php echo $major; ?><br><br>
 			The places you have visited: <?php if (isset($_POST['places'])) {$place = $_POST['places']; foreach($place as $key => $value) { echo $value . ", ";} } else { echo 'No places selected.'; } ?><br><br>
 			Your comments: <?php echo $comment; ?>
