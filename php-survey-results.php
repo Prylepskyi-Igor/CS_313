@@ -13,7 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $myfile = fopen("voting-results.txt", "w") or die("Unable to open file!");
     $txt = fread($myfile,filesize("voting-results.txt"));
-    echo $txt. 'success';
+    $txt = '$test = 0;';
+    eval($txt);
+    $test++;
+    $txt = '$test = '. $test;
     fwrite($myfile, $txt);
     fclose($myfile);
     
