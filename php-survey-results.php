@@ -14,10 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $file = 'voting-results.txt';
     // Open the file to get existing content
     $current = file_get_contents($file);
-    $current = "\$prevAnswer = \"0\";";
+    $current = '$prevAnswer = 0;';
     eval($current);
     // Append a new person to the file
-    $current = '$prevAnswer = '. $prevAnswer++. "\n";
+    $current = "\$prevAnswer += \"1\";";
+
     // Write the contents back to the file
     file_put_contents($file, $current);
 
