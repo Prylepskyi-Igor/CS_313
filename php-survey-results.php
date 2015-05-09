@@ -18,6 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $current .= '$answer\n';
     // Write the contents back to the file
     file_put_contents($file, $current);
+
+    echo $current;
     
 } else {
     header('Location: php-survey.php');
