@@ -16,8 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $current = file_get_contents($file);
     $current = "\$prevAnswer = \"0\";";
     eval($current);
+    (int)prevAnswer++;
     // Append a new person to the file
-    $current = '$prevAnswer = '. ((int)$prevAnswer)++;
+    $current = '$prevAnswer = '. (string)$prevAnswer;
 
     // Write the contents back to the file
     file_put_contents($file, $current);
