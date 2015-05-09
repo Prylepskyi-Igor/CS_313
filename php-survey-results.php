@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Open the file to get existing content
     $content = file_get_contents('voting-results.txt');
-    echo (string)unserialize($content);
+    echo unserialize($content);
     
 } else {
     header('Location: php-survey.php');
