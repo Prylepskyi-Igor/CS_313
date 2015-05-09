@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //retreive data from form
     $answer = $_POST['_answer'];
 
-    $myfile = fopen("voting-results.txt", "r") or die("Unable to open file!");
+    $myfile = fopen("voting-results.txt", "w") or die("Unable to open file!");
     $txt = fread($myfile,filesize("voting-results.txt"));
     echo $txt;
     fwrite($myfile, $txt);
