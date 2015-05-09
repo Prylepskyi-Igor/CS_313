@@ -12,17 +12,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $answer = $_POST['_answer'];
 
     // Open the file to get existing content
-    $current = file_get_contents('voting-results.txt');
+    $content = file_get_contents('voting-results.txt');
+    $str = unserialize($content);
+
     // Append a new person to the file
-    $str = "\$value = 0;";
-
-    echo $str. "<br>";
-
-    eval("\$str = \"$str\";");
-    echo $str;
+    $str = serialize(array("0", "1", "2"));
 
     // Write the contents back to the file
     file_put_contents('voting-results.txt', $str);
+
+    echo $str;
     
 } else {
     header('Location: php-survey.php');
