@@ -15,11 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $content = file_get_contents('voting-results.txt');
     $str = unserialize($content);
 
-    // Append a new person to the file
-    $str = serialize(array("0", "1", "2"));
-
-    // Write the contents back to the file
-    file_put_contents('voting-results.txt', $str);
+    //// Append a new person to the file
+    //$str = serialize(array("0", "1", "2"));
+//
+    //// Write the contents back to the file
+    //file_put_contents('voting-results.txt', $str);
 
     echo $str;
     
