@@ -14,8 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Open the file to get existing content
     $current = file_get_contents('voting-results.txt');
     // Append a new person to the file
-    $str = "$value = 0;";
-    
+    $str = '$value = 0;';
+
     echo $str. "<br>";
 
     eval("\$str = \"$str\";");
