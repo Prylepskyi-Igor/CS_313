@@ -5,6 +5,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <title>Assignments</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen">
 
     <style>
         fieldset.scheduler-border {
@@ -37,8 +38,8 @@
     </script>
 </head>
     <body>
-        <header>
-            <h1 class="scheduler-border">PHP Survey</h1>
+        <header class="page_header">
+            <h1 class="page_header">PHP Survey</h1>
         </header>
         
         <main class="container">
@@ -55,8 +56,8 @@
             </form>
         </main>
 
-        <footer>
-            <a class="scheduler-border" href="assignments.html">Back to assignments page</a>
+        <footer class="page_footer">
+            <a class="page_footer" href="assignments.html">Back to assignments page</a>
         </footer>
     </body>
 </html>
