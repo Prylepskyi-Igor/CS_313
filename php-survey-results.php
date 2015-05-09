@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Open the file to get existing content
     $content = file_get_contents('voting-results.txt');
-    $str = unserialize($content);
+    $str = $content;//unserialize($content);
 
     //// Append a new person to the file
     //$str = serialize(array("0", "1", "2"));
