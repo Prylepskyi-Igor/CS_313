@@ -9,12 +9,15 @@ function cleanData($data)
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //retreive data from form
-    $name = cleanData($_POST['_name']);
-    $email = cleanData($_POST['_email']);
-    $major = $_POST['_major'];
-    $places = $_POST['_places'];
-    $comments = cleanData($_POST['_comments']);
+    $answer = $_POST['_answer'];
 
+    $file = 'voting-results.txt';
+    // Open the file to get existing content
+    $current = file_get_contents($file);
+    // Append a new person to the file
+    $current .= '$answer\n';
+    // Write the contents back to the file
+    file_put_contents($file, $current);
     
 } else {
     header('Location: php-survey.php');
