@@ -24,7 +24,7 @@
         <main>
         	<table id="assignments">
                 <td>
-                    <a href="team-readiness-activity.php">Assignment 1</a>
+                    <a href="team-readiness-activity.html">Assignment 1</a>
                 </td>
             </table>
         </main>
