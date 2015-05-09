@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $content = file_get_contents('voting-results.txt');
     $result = unserialize($content);
 
-    echo "Result 1: ". $result[0]. "\nResult 2: ". $result[1]. "\nResult 3: ". $result[2]. "\n";
+    echo "Result 1: ". $result[0]. "<br>Result 2: ". $result[1]. "<br>Result 3: ". $result[2]. "\n";
     
 } else {
     header('Location: php-survey.php');
