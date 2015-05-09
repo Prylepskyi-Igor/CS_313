@@ -11,19 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //retreive data from form
     $answer = $_POST['_answer'];
 
-    $file = 'voting-results.txt';
-    // Open the file to get existing content
-    $current = file_get_contents($file);
-    $current = "\$prevAnswer = \"0\";";
-    eval($current);
-    (int)prevAnswer++;
-    // Append a new person to the file
-    $current = '$prevAnswer = '. (string)$prevAnswer;
-
-    // Write the contents back to the file
-    file_put_contents($file, $current);
-
-    echo $current;
+    $myfile = fopen("voting-results.txt", "r") or die("Unable to open file!");
+    $txt = fread($myfile,filesize("voting-results.txt"));
+    echo $txt;
+    fwrite($myfile, $txt);
+    fclose($myfile);
     
 } else {
     header('Location: php-survey.php');
