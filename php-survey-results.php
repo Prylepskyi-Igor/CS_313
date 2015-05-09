@@ -8,9 +8,6 @@ function cleanData($data)
 }//end cleanData
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //retreive data from form
-    $answer = $_POST['_answer'];
-
     // Append a new person to the file
     $str = serialize(array("0", "1", "2"));
 
@@ -21,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $content = file_get_contents('voting-results.txt');
     $result = unserialize($content);
 
-    echo "Result 1: ". $result[0]. "<br>Result 2: ". $result[1]. "<br>Result 3: ". $result[2]. "\n";
+    echo $_POST['_answer1']. ": ". $result[0]. "<br>". $_POST['_answer2']. ": ". $result[1]. "<br>". $_POST['_answer3']. ": ". $result[2]. "\n";
     
 } else {
     header('Location: php-survey.php');
