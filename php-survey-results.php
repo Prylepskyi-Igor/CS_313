@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $txt = '$test = 0;';
     eval($txt);
     $test++;
-    $txt = '$test = '. $test;
+    $txt = "\$test = \"$test\";";
     fwrite($myfile, $txt);
     fclose($myfile);
     
