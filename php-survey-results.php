@@ -14,12 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Open the file to get existing content
     $current = file_get_contents('voting-results.txt');
     // Append a new person to the file
-    $current = "0". 0;
-    $final = $test;
+    $current = "0";
     // Write the contents back to the file
-    file_put_contents('voting-results.txt', $final);
+    file_put_contents('voting-results.txt', $current);
 
-    echo $final;
+    echo $current;
     
 } else {
     header('Location: php-survey.php');
