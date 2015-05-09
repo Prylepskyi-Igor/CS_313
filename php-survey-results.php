@@ -19,6 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $final = $test;
     // Write the contents back to the file
     file_put_contents('voting-results.txt', $final);
+
+    echo $final;
     
 } else {
     header('Location: php-survey.php');
