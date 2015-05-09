@@ -24,7 +24,8 @@
         <main>
         	<table id="assignments">
                 <td>
-                    <a href="team-readiness-activity.html">Assignment 1</a>
+                    <a href="team-readiness-activity.html">Team Readiness Activity</a>
+                    <a href="php-survey.php">Team Readiness Activity</a>
                 </td>
             </table>
         </main>

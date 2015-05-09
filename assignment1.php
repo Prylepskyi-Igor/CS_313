@@ -18,7 +18,7 @@
 </head>
     <body>
         <header class="page_header">
-            <h1 class="page_header">Assignment 1</h1>
+            <h1 class="page_header">PHP Survey</h1>
         </header>
         
         <main>
