@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Assigment Week II</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <style>
+    fieldset.scheduler-border {
+        border: 1px groove #ddd !important;
+        padding: 0 1.4em 1.4em 1.4em !important;
+        margin: 0 0 1.5em 0 !important;
+        -webkit-box-shadow: 0px 0px 0px 0px #000;
+        box-shadow: 0px 0px 0px 0px #000;
+    }
+    
+    legend.scheduler-border {
+        width: inherit;
+        /* Or auto */
+        
+        padding: 0 10px;
+        /* To give a bit of padding on the left and right */
+        
+        border-bottom: none;
+    }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <form class="form-horizontal" action="Assigments.php" method="POST" role="form">
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">User Inputs: </legend>
+                <div class="form-group">
+                    <label for="_name" class="col-sm-2 control-label">Name: </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="_name" placeholder="Enter your name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="_email" class="col-sm-2 control-label">Email: </label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" name="_email" placeholder="Enter your email address" required>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">Major: </legend>
+                <div class="checkbox">
+                    <label><input type="radio" name="_major" value="Computer Science" required> Computer Science</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="radio" name="_major" value="Web Development and Design"> Web Development and Design</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="radio" name="_major" value="Computer Information Technology"> Computer Information Technology</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="radio" name="_major" value="Computer Engineering"> Computer Engineering</label>
+                </div>
+            </fieldset>
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">Visited Palces: </legend>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="_places[]" value="North America">North America</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="_places[]" value="South America">South America</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="_places[]" value="Europa">Europa</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="_places[]" value="Asia">Asia</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="_places[]" value="Australia">Australia</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="_places[]" value="Africa">Africa</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="_places[]" value="Antartica">Antartica</label>
+                </div>
+            </fieldset>
+            <legend class="scheduler-border">Comments</legend>
+            <textarea rows="6" cols="80" class="form-control" name="_comments"></textarea>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </main>
+</body>
+
+</html>
