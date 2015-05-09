@@ -1,43 +1,41 @@
 <?php
-	$name = $_POST['name'];
-	$email = $_POST['email'];
-	
-	if (isset($_POST['major'])) {
-		$major = $_POST['major'];
-		} else
-			$major = "unknown";		
-	
-	$comment = $_POST['comment'];
-	?>
+function cleanData($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = strip_tags($data); //removes HTML and PHP tags from a string
+    return $data;
+}//end cleanData
 
-<!DOCTYPE html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
-		<link rel="stylesheet" type="text/css" href="style.css" 
-              media="screen">
-		<title>Brendon Young - CS 313</title>
-	</head>
-	<body>
-		<div id="header">
-			<div id='banner'>
-				<h1>Brendon Young - CS 313</h1>
-			</div>
-			<nav id='nav'>
-				<ul id="navli">
-					<li><a href="/index.php" title="Home">Home</a></li>
-					<li><a href="/assignments.php" title="Assignments">Assignments</a></li>
-				</ul>
-			</nav>
-		</div>
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //retreive data from form
+    $name = cleanData($_POST['_name']);
+    $email = cleanData($_POST['_email']);
+    $major = $_POST['_major'];
+    $places = $_POST['_places'];
+    $comments = cleanData($_POST['_comments']);
 
-			Welcome <?php echo $name; ?><br><br>
-			Your email address is: <?php echo "<a href='mailto: $email'>$email</a>"; ?><br><br>
-			Your major is: <?php echo $major; ?><br><br>
-			The places you have visited: <?php if (isset($_POST['places'])) {$place = $_POST['places']; foreach($place as $key => $value) { echo $value . ", ";} } else { echo 'No places selected.'; } ?><br><br>
-			Your comments: <?php echo $comment; ?>
-
-		<footer id="footer">
-			<p>&copy; - Brendon Young 2015</p>
-		</footer>
-	</body>
-</html>
+    echo "User's name: ".$name.".<br>";
+    echo "Email Address: <a href='mailto:$email'>".$email."</a>.<br>";
+    echo "BYUI Major: ".$major.".<br>";
+    echo "Visited Places :";
+    if (empty($places)) {
+        echo("You have not traveled a lot to say.<br>");
+    } else {
+        $N = count($places);
+        echo "<ul>";
+        for ($i = 0; $i < $N; $i++) {
+            echo "<li>$places[$i]</li>";
+        }
+        echo "</ul>";
+    }
+    echo "Comments: ";
+    if (empty($comments)) {
+        echo ("You have no too much to say.");
+    } else {
+        echo $comments;
+    }
+} else {
+    header('Location: Assigments.html');
+    exit;
+}

@@ -26,7 +26,7 @@
         </main>
 
         <footer class="page_footer">
-            <a class="page_footer" href="assignments.php">Back to assignments page</a>
+            <a class="page_footer" href="assignments.html">Back to assignments page</a>
         </footer>
     </body>
 </html>
