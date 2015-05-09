@@ -37,8 +37,8 @@
     </script>
 </head>
     <body>
-        <header class="page_header">
-            <h1 class="page_header">PHP Survey</h1>
+        <header>
+            <h1 class="scheduler-border">PHP Survey</h1>
         </header>
         
         <main class="container">
@@ -55,8 +55,8 @@
             </form>
         </main>
 
-        <footer class="page_footer">
-            <a class="page_footer" href="assignments.html">Back to assignments page</a>
+        <footer>
+            <a class="scheduler-border" href="assignments.html">Back to assignments page</a>
         </footer>
     </body>
 </html>
