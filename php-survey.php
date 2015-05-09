@@ -47,7 +47,7 @@
                 <fieldset class="scheduler-border">
                     <legend class="scheduler-border">Question: </legend>
                     <div class="checkbox">
-                        <label><input type="radio" name="_answer" value="Answer1" required> Answer1</label>
+                        <label><input type="radio" name="_answer" value="1" required> Answer1</label>
                         <label><input type="radio" name="_answer" value="Answer2" required> Answer2</label>
                         <label><input type="radio" name="_answer" value="Answer3" required> Answer3</label>
                     </div>
