@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Open the file to get existing content
     $current = file_get_contents('voting-results.txt');
     // Append a new person to the file
-    $current = "$test = 0;";
+    $current = "\$test = 0;";
     eval($current);
     $final = $test;
     // Write the contents back to the file
