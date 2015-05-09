@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Append a new person to the file
     $current .= $answer. "\n";
     // Write the contents back to the file
-    file_put_contents($file, $current);
+    file_put_contents($file, '');
 
     echo $current;
     
