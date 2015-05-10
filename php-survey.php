@@ -82,6 +82,7 @@
         </main>
 
         <footer class="page_footer">
+            <a class="page_footer" href="php-survey-results.php">To results page</a><br>
             <a class="page_footer" href="assignments.php">Back to assignments page</a>
         </footer>
     </body>
