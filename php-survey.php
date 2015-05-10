@@ -78,7 +78,7 @@
                 </fieldset>
                 <br>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="button" class="btn btn-success" formaction="php-survey-results.php">Results</button>
+                <a href="http://php-megiddo.rhcloud.com/php-survey-results.php">Results</a>
             </form>
         </main>
 
