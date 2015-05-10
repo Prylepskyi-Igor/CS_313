@@ -18,15 +18,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $getChoice = $_POST['_answer'];
 
-    if($getChoice == "0")
+    if($getChoice === "0")
     {
         result[0]++;
     }
-    elseif($getChoice == "1")
+    elseif($getChoice === "1")
     {
         result[1]++;        
     }
-    elseif($getChoice == "2")
+    elseif($getChoice === "2")
     {
         result[2]++;        
     }
