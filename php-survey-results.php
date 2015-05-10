@@ -9,11 +9,13 @@ function cleanData($data)
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+    $result = array(0, 0, 0);
+
+    file_put_contents('voting-results.txt', serialize($result));
+
     // Open the file to get existing content
     $content = file_get_contents('voting-results.txt');
     $result = unserialize($content);
-
-    $result = array(0, 0, 0);
    
     $getChoice = $_POST['_answer'];
 
