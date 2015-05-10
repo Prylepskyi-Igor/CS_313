@@ -1,8 +1,15 @@
 <?php 
-    if(session_id() == "")
+    if($_SESSION["running"] == true)
     {
         header("Location: http://php-megiddo.rhcloud.com/php-survey-results.php"); /* Redirect browser */
         exit();
+    }
+
+    if(session_status() == PHP_SESSION_NONE)
+    {
+        session_start();
+
+        $_SESSION["stop"] = false;
     }
     
     ?>
