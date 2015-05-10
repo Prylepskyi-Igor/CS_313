@@ -7,7 +7,11 @@ function cleanData($data)
     return $data;
 }//end cleanData
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && session_status() == PHP_SESSION_NONE) {
+
+    session_start();
+
+    $_SESSION["running"] = true;
 
     $result = array(array(0,0,0,0), array(0,0,0,0), array(0,0,0,0), array(0,0,0,0));
 
