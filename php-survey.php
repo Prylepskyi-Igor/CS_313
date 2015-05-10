@@ -1,5 +1,5 @@
 <?php 
-    if($_SESSION["stop"] == true)
+    if($_SESSION["stop"] == "true")
     {
         header("Location: http://php-megiddo.rhcloud.com/php-survey-results.php"); /* Redirect browser */
         exit();
@@ -9,7 +9,7 @@
     {
         session_start();
 
-        $_SESSION["stop"] = false;
+        $_SESSION["stop"] = "false";
     }
     
     ?>
