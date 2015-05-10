@@ -119,12 +119,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "Hours spent for school.<br> 0-4: ". $result[0][0]. "<br>4-8: ". $result[0][1]. "<br>8-12: ". $result[0][2]. "<br>12+:  ". $result[0][3]. "\n";
     echo "<br><br>Number of classes taking.<br> 1:  ". $result[1][0]. "<br>2:  ". $result[1][1]. "<br>3:  ". $result[1][2]. "<br>4+: ". $result[1][3]. "\n";
     echo "<br><br>Computer Science major.<br> yes: ". $result[2][0]. "<br> no:  ". $result[2][1]. "\n";
-    echo "<br><br>Would like to change their major to Software Engineering.<br> yes: ". $result[3][0]. "<br> no:  ". $result[3][1]. "\n";
+    echo "<br><br>Would like to change their major to Software Engineering.<br> yes: ". $result[3][0]. "<br> no:  ". $result[3][1]. "<br><br>";
 
     // Write the contents back to the file
     file_put_contents('voting-results.php', serialize($result));
 }
 
-echo "<footer class=\"page_footer\">
-            <a class=\"page_footer\" href=\"http://php-megiddo.rhcloud.com/php-survey.php\">Back to assignments page</a>
-        </footer>";
+echo "<a class=\"page_footer\" href=\"assignments.php\">Back to assignments page</a>";
