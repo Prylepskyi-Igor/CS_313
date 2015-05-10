@@ -9,6 +9,7 @@ function cleanData($data)
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+    echo "check 0<br>";
     // Open the file to get existing content
     $content = file_get_contents('voting-results.txt');
     $result = unserialize($content);
