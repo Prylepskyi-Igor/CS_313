@@ -9,7 +9,7 @@ function cleanData($data)
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $result1 = array(array(0,0,0,0), array(0,0,0,0), array(0,0,0,0), array(0,0,0,0));
+    $result = array(array(0,0,0,0), array(0,0,0,0), array(0,0,0,0), array(0,0,0,0));
 
     file_put_contents('voting-results.php', serialize($result1));
 
@@ -107,6 +107,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     file_put_contents('voting-results.php', serialize($result));
     
 } else {
-    header('Location: php-survey.php');
-    exit;
+    $result = array(array(0,0,0,0), array(0,0,0,0), array(0,0,0,0), array(0,0,0,0));
+
+    // Open the file to get existing content
+    $content = file_get_contents('voting-results.php');
+    $result = unserialize($content);
+
+    echo "Hours spent for school.<br> 0-4: ". $result[0][0]. "<br>4-8: ". $result[0][1]. "<br>8-12: ". $result[0][2]. "<br>12+:  ". $result[0][3]. "\n";
+    echo "<br><br>Number of classes taking.<br> 1:  ". $result[1][0]. "<br>2:  ". $result[1][1]. "<br>3:  ". $result[1][2]. "<br>4+: ". $result[1][3]. "\n";
+    echo "<br><br>Computer Science major.<br> yes: ". $result[2][0]. "<br> no:  ". $result[2][1]. "\n";
+    echo "<br><br>Would like to change their major to Software Engineering.<br> yes: ". $result[3][0]. "<br> no:  ". $result[3][1]. "\n";
+
+    // Write the contents back to the file
+    file_put_contents('voting-results.php', serialize($result));
 }
