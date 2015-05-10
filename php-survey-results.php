@@ -9,7 +9,7 @@ function cleanData($data)
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $_SESSION["stop"] = "true";
+    session_start();
 
     $result = array(array(0,0,0,0), array(0,0,0,0), array(0,0,0,0), array(0,0,0,0));
 
