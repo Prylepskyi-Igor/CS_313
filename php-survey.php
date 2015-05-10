@@ -1,5 +1,5 @@
 <?php 
-    if(session_id() != "")
+    if(session_id() == "")
     {
         header("Location: http://php-megiddo.rhcloud.com/php-survey-results.php"); /* Redirect browser */
         exit();
