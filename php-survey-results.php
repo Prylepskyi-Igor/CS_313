@@ -127,5 +127,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && session_status() == PHP_SESSION_NONE
 }
 
 echo "<footer class=\"page_footer\">
-            <a class=\"page_footer\" href=\"assignments.php\">Back to assignments page</a>
+            <a class=\"page_footer\" href=\"http://php-megiddo.rhcloud.com/php-survey.php\">Back to assignments page</a>
         </footer>";

@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <?php 
+<?php 
     if(isset($_SESSION['running']))
     {
         header("Location: http://php-megiddo.rhcloud.com/php-survey-results.php"); /* Redirect browser */
@@ -10,6 +6,11 @@
     }
     
     ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <title>Assignments</title>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
