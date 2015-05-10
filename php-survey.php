@@ -78,11 +78,11 @@
                 </fieldset>
                 <br>
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-success" onclick="php-survey-results.php">Results</button>
             </form>
         </main>
 
         <footer class="page_footer">
-            <a class="page_footer" href="php-survey-results.php">To results page</a><br>
             <a class="page_footer" href="assignments.php">Back to assignments page</a>
         </footer>
     </body>
