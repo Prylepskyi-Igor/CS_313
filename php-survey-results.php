@@ -9,7 +9,7 @@ function cleanData($data)
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $result1 = array(0, 0, 0);
+    $result1 = array(array(0,0,0,0), array(0,0,0,0), array(0,0,0,0), array(0,0,0,0));
 
     file_put_contents('voting-results.php', serialize($result1));
 
@@ -17,24 +17,91 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $content = file_get_contents('voting-results.php');
     $result = unserialize($content);
    
-    $getChoice = $_POST['_answer'];
+    $getChoice1 = $_POST['_answer1'];
+    $getChoice2 = $_POST['_answer2'];
+    $getChoice3 = $_POST['_answer3'];
+    $getChoice4 = $_POST['_answer4'];
 
-    if($getChoice === "0")
+    if($getChoice1 === "0")
     {
-        $result[0]++;
+        $result[0][0]++;
     }
-    elseif($getChoice === "1")
+    elseif($getChoice1 === "1")
     {
-        $result[1]++;        
+        $result[0][1]++;        
     }
-    elseif($getChoice === "2")
+    elseif($getChoice1 === "2")
     {
-        $result[2]++;        
+        $result[0][2]++;        
+    }
+    elseif($getChoice1 === "3")
+    {
+        $result[0][3]++;        
     }
     else
         echo "Error!<br>";
 
-    echo "Result 1: ". $result[0]. "<br>Result 2: ". $result[1]. "<br>Result 3: ". $result[2]. "\n";
+    if($getChoice2 === "0")
+    {
+        $result[1][0]++;
+    }
+    elseif($getChoice2 === "1")
+    {
+        $result[1][1]++;        
+    }
+    elseif($getChoice2 === "2")
+    {
+        $result[1][2]++;        
+    }
+    elseif($getChoice2 === "3")
+    {
+        $result[1][3]++;        
+    }
+    else
+        echo "Error!<br>";
+
+    if($getChoice3 === "0")
+    {
+        $result[2][0]++;
+    }
+    elseif($getChoice3 === "1")
+    {
+        $result[2][1]++;        
+    }
+    elseif($getChoice3 === "2")
+    {
+        $result[2][2]++;        
+    }
+    elseif($getChoice3 === "3")
+    {
+        $result[2][3]++;        
+    }
+    else
+        echo "Error!<br>";
+
+    if($getChoice4 === "0")
+    {
+        $result[3][0]++;
+    }
+    elseif($getChoice4 === "1")
+    {
+        $result[3][1]++;        
+    }
+    elseif($getChoice4 === "2")
+    {
+        $result[3][2]++;        
+    }
+    elseif($getChoice4 === "3")
+    {
+        $result[3][3]++;        
+    }
+    else
+        echo "Error!<br>";
+
+    echo "Hours spent for school.<br> 0-4: ". $result[0][0]. "<br>4-8: ". $result[0][1]. "<br>8-12: ". $result[0][2]. "<br>12+: ". $result[0][3]. "\n";
+    echo "Number of classes taking.<br> 1: ". $result[1][0]. "<br>2: ". $result[1][1]. "<br>3: ". $result[1][2]. "<br>4+: ". $result[1][3]. "\n";
+    echo "Computer Science major.<br> yes: ". $result[2][0]. "<br> no: ". $result[2][1]. "\n";
+    echo "Would like to change their major to Software Engineering.<br> yes: ". $result[3][0]. "<br> no: ". $result[3][1]. "\n";
 
     // Write the contents back to the file
     file_put_contents('voting-results.php', serialize($result));
