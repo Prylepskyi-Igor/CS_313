@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 function cleanData($data)
 {
     $data = trim($data);
@@ -8,6 +10,7 @@ function cleanData($data)
 }//end cleanData
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $_SESSION["redirect"] = "true";
 
     $result = array(array(0,0,0,0), array(0,0,0,0), array(0,0,0,0), array(0,0,0,0));
 

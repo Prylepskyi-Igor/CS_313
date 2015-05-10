@@ -1,9 +1,7 @@
 <?php 
-    if(session_status() == PHP_SESSION_NONE)
-    {
-        session_start();
-    }
-    else
+    session_start();
+
+    if($_SESSION["redirect"] == "true")
     {
         header("Location: http://php-megiddo.rhcloud.com/php-survey-results.php"); /* Redirect browser */
         exit();
