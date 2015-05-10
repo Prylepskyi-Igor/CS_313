@@ -12,12 +12,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Open the file to get existing content
     $content = file_get_contents('voting-results.txt');
     $result = unserialize($content);
-
+    echo "check 1<br>";
     // Append a new person to the file
     $str = serialize(array(0, 0, 0));
-
+    echo "check 2<br>";    
     $getChoice = $_POST['_answer'];
-
+    echo "check 3<br>";
     if($getChoice === "0")
     {
         result[0]++;
