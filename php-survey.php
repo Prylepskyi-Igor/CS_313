@@ -78,7 +78,7 @@
                 </fieldset>
                 <br>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="button" class="btn btn-success" action="php-survey-results.php">Results</button>
+                <button type="button" class="btn btn-success" formaction="php-survey-results.php">Results</button>
             </form>
         </main>
 
