@@ -1,9 +1,9 @@
 <?php 
-    if(isset($_SESSION['running']))
-    {
+    //if(isset($_SESSION['running']))
+    //{
         header("Location: http://php-megiddo.rhcloud.com/php-survey-results.php"); /* Redirect browser */
         exit();
-    }
+    //}
     
     ?>
 
