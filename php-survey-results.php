@@ -125,3 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && session_status() == PHP_SESSION_NONE
     // Write the contents back to the file
     file_put_contents('voting-results.php', serialize($result));
 }
+
+echo "<footer class=\"page_footer\">
+            <a class=\"page_footer\" href=\"assignments.php\">Back to assignments page</a>
+        </footer>";
