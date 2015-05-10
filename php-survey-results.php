@@ -9,9 +9,9 @@ function cleanData($data)
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    //$result = array(array(0,0,0,0), array(0,0,0,0), array(0,0,0,0), array(0,0,0,0));
+    $result = array(array(0,0,0,0), array(0,0,0,0), array(0,0,0,0), array(0,0,0,0));
 
-    file_put_contents('voting-results.php', serialize($result1));
+    file_put_contents('voting-results.php', serialize($result));
 
     // Open the file to get existing content
     $content = file_get_contents('voting-results.php');
