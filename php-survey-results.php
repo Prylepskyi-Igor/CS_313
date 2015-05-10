@@ -118,10 +118,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = unserialize($content);
 
     echo "VOTE RESULTS<br><br>";
-    echo "Hours spent for school.<br> 0-4: ". $result[0][0]. "<br>4-8: ". $result[0][1]. "<br>8-12: ". $result[0][2]. "<br>12+:  ". $result[0][3]. "\n";
-    echo "<br><br>Number of classes taking.<br> 1:  ". $result[1][0]. "<br>2:  ". $result[1][1]. "<br>3:  ". $result[1][2]. "<br>4+: ". $result[1][3]. "\n";
-    echo "<br><br>Computer Science major.<br> yes: ". $result[2][0]. "<br> no:  ". $result[2][1]. "\n";
-    echo "<br><br>Would like to change your major to Software Engineering.<br> yes: ". $result[3][0]. "<br> no:  ". $result[3][1]. "<br><br>";
+    echo "Hours spent for school.<br> Number of students answered 0-4 is ". $result[0][0]. "<br>Number of students answered 4-8 is ". $result[0][1]. "<br>Number of students answered 8-12 is ". $result[0][2]. "<br>Number of students answered 12+ is ". $result[0][3]. "\n";
+    echo "<br><br>Number of classes taking.<br> Number of students answered 1 is  ". $result[1][0]. "<br>Number of students answered 2 is". $result[1][1]. "<br>Number of students answered 3 is ". $result[1][2]. "<br>Number of students answered 4+ is ". $result[1][3]. "\n";
+    echo "<br><br>Computer Science major.<br> Number of students answered yes is ". $result[2][0]. "<br> Number of students answered no is". $result[2][1]. "\n";
+    echo "<br><br>Would like to change your major to Software Engineering.<br> Number of students answered yes is ". $result[3][0]. "<br> Number of students answered no is  ". $result[3][1]. "<br><br>";
 
     // Write the contents back to the file
     file_put_contents('voting-results.php', serialize($result));
