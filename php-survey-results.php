@@ -9,8 +9,6 @@ function cleanData($data)
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    session_start();
-
     $result = array(array(0,0,0,0), array(0,0,0,0), array(0,0,0,0), array(0,0,0,0));
 
     file_put_contents('voting-results.php', serialize($result));

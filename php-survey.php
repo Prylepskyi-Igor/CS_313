@@ -1,9 +1,14 @@
 <?php 
-    if(session_id() != "")
+    if(session_status() == PHP_SESSION_NONE)
+    {
+        session_start();
+    }
+    else
     {
         header("Location: http://php-megiddo.rhcloud.com/php-survey-results.php"); /* Redirect browser */
         exit();
     }
+        
     ?>
 
 <!DOCTYPE html>
