@@ -9,16 +9,14 @@ function cleanData($data)
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    echo "check 0<br>";
     // Open the file to get existing content
     $content = file_get_contents('voting-results.txt');
     $result = unserialize($content);
-    echo "check 1<br>";
-    // Append a new person to the file
-    $str = serialize(array(0, 0, 0));
-    echo "check 2<br>";    
+
+    $result = array(0, 0, 0);
+   
     $getChoice = $_POST['_answer'];
-    echo "check 3<br>";
+
     if($getChoice === "0")
     {
         $result[0]++;
@@ -32,12 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result[2]++;        
     }
     else
-        $result[0] = 99;
+        echo "Error!<br>";
 
     echo "Result 1: ". $result[0]. "<br>Result 2: ". $result[1]. "<br>Result 3: ". $result[2]. "\n";
 
     // Write the contents back to the file
-    file_put_contents('voting-results.txt', $str);
+    file_put_contents('voting-results.txt', serialize($result));
     
 } else {
     header('Location: php-survey.php');
