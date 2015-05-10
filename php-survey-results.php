@@ -21,18 +21,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "check 3<br>";
     if($getChoice === "0")
     {
-        result[0]++;
+        $result[0]++;
     }
     elseif($getChoice === "1")
     {
-        result[1]++;        
+        $result[1]++;        
     }
     elseif($getChoice === "2")
     {
-        result[2]++;        
+        $result[2]++;        
     }
     else
-        result[0] = 99;
+        $result[0] = 99;
 
     echo "Result 1: ". $result[0]. "<br>Result 2: ". $result[1]. "<br>Result 3: ". $result[2]. "\n";
 
