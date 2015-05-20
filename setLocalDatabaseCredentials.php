@@ -1,5 +1,3 @@
-<?php
-  $dbHost = "localhost";
-  $dbUser = "root";
-  $dbPassword = "";
-?>
+$dbHost = "localhost";
+$dbUser = "root";
+$dbPassword = "";

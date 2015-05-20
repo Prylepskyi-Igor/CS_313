@@ -19,16 +19,11 @@
         
         <main>
         	<?php 
-        	<select name="TofD" size="3">
-			<option value="Morning">Morning</option>
-			<option value="Day">Day</option>
-			<option value="Night">Night</option></select><br />
-
-        	foreach ($db->query('SELECT book FROM Scripture') as $row)
-			{
-			   echo 'Scripture: ' . $row['book'];
-			   echo '<br />';
-			}
+	        	foreach ($db->query('SELECT book FROM Scripture') as $row)
+				{
+				   echo 'Scripture: ' . $row['book'];
+				   echo '<br />';
+				}
         	?>
         </main>
 
