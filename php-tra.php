@@ -10,33 +10,36 @@
 
 		$db = loadDatabase();
     ?>
-    <title>Intro</title>
+    <title>Scripture Resources</title>
 </head>
     <body>
         <header class="page_header">
-            <h1 class="page_header">PHP Database</h1>
+            <h1 class="page_header">Scripture Resources</h1>
         </header>
         
         <main>
         	<?php 
 	        	foreach ($db->query('SELECT book, chapter, verse, content FROM Scriptures') as $row)
 				{
+					echo '<strong>';
 				   echo $row['book'] . ' ';
 				   echo $row['chapter'] . ':';
 				   echo $row['verse'] . '. ';
+				   echo '<\strong>';
+				   echo '\"';
 				   echo $row['content'];
-				   echo '<br />';
+				   echo '\"';
+				   echo '<br /><br />';
 				}
-        	?>
 
-        	<select multiple="multiple" name="formCountries[]">
-				<option value="US">United States</option>
-				<option value="UK">United Kingdom</option>
-				<option value="France">France</option>
-				<option value="Mexico">Mexico</option>
-				<option value="Russia">Russia</option>
-				<option value="Japan">Japan</option>
-			</select>
+				echo "<select multiple=\"multiple\" name=\"scriptures\">";
+				foreach ($db->query('SELECT book, chapter, verse, content FROM Scriptures') as $row)
+				{
+					echo "<option value=\"" . $row['book'] . "\">" . $row['book'] . "</option>";
+				}
+				echo "</select>";
+
+        	?>
         </main>
 
         <footer class="page_footer">
