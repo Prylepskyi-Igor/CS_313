@@ -19,20 +19,25 @@
         
         <main>
         	<?php 
+	        	function displayScripture(value)
+				{
+				  echo "Book - " . value . "</br>";
+				}
+
 	        	foreach ($db->query('SELECT book, chapter, verse, content FROM Scriptures') as $row)
 				{
 					echo '<strong>';
 				   echo $row['book'] . ' ';
 				   echo $row['chapter'] . ':';
 				   echo $row['verse'] . '. ';
-				   echo '<\strong>';
-				   echo '\"';
+				   echo '</strong>';
+				   echo '"';
 				   echo $row['content'];
-				   echo '\"';
+				   echo '"';
 				   echo '<br /><br />';
 				}
 
-				echo "<select multiple=\"multiple\" name=\"scriptures\">";
+				echo "<select onchange=\"displayScripture(this.value);\">";
 				foreach ($db->query('SELECT book, chapter, verse, content FROM Scriptures') as $row)
 				{
 					echo "<option value=\"" . $row['book'] . "\">" . $row['book'] . "</option>";
