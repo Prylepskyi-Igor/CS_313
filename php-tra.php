@@ -19,7 +19,7 @@
         
         <main>
         	<?php 
-	        	foreach ($db->query('SELECT book FROM Scripture') as $row)
+	        	foreach ($db->query('SELECT book FROM Scriptures') as $row)
 				{
 				   echo 'Scripture: ' . $row['book'];
 				   echo '<br />';
