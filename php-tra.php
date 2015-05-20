@@ -19,9 +19,9 @@
         
         <main>
         	<?php 
-	        	function displayScripture(value)
+	        	function displayScripture($value)
 				{
-				  echo "Book - " . value . "</br>";
+				  echo "Book - " . $value . "</br>";
 				}
 
 	        	foreach ($db->query('SELECT book, chapter, verse, content FROM Scriptures') as $row)
