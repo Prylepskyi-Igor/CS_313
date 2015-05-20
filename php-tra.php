@@ -19,7 +19,7 @@
         
         <main>
         	<?php 
-	        	foreach ($db->query('SELECT book FROM Scriptures') as $row)
+	        	foreach ($db->query('SELECT book, chapter, verse, content FROM Scriptures') as $row)
 				{
 				   echo $row['book'] . ' ';
 				   echo $row['chapter'] . ':';
@@ -27,6 +27,15 @@
 				   echo $row['content'];
 				   echo '<br />';
 				}
+
+				<select multiple="multiple" name="formCountries[]">
+				    <option value="US">United States</option>
+				    <option value="UK">United Kingdom</option>
+				    <option value="France">France</option>
+				    <option value="Mexico">Mexico</option>
+				    <option value="Russia">Russia</option>
+				    <option value="Japan">Japan</option>
+				</select>
         	?>
         </main>
 
