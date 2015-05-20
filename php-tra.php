@@ -21,7 +21,10 @@
         	<?php 
 	        	foreach ($db->query('SELECT book FROM Scriptures') as $row)
 				{
-				   echo 'Scripture: ' . $row['book'];
+				   echo $row['book'] . ' ';
+				   echo $row['chapter'] . ':';
+				   echo $row['verse'] . '. ';
+				   echo $row['content'];
 				   echo '<br />';
 				}
         	?>
