@@ -21,7 +21,7 @@
         	<?php 
 	        	foreach ($db->query('SELECT photo_path FROM photos') as $row)
 				{
-					echo "<img src=\"" . $row['photo_path'] . "\" width=\"400px\" length=\"300px\" />";
+					echo "<img class=\"photos\" src=\"" . $row['photo_path'] . "\" width=\"400px\" length=\"300px\" />";
 				}
 
         	?>
