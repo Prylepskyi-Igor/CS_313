@@ -24,9 +24,9 @@
     <body>
         <header class="page_header">
         	<?php 
-        		foreach ($db->query('SELECT photo_path FROM photos') as $row)
+        		foreach ($db->query('SELECT album_note FROM album') as $row)
 				{
-					echo "<h1 class=\"page_header\">" . $row['photo_path'] . "</h1>";
+					echo "<h1 class=\"page_header\">" . $row['album_note'] . "</h1>";
 				}
         	?>
         </header>
