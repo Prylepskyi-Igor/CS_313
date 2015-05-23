@@ -18,15 +18,11 @@
         </header>
         
         <main>
+        	<img src="pics/pic1.jpg" width="400px" length="300px" />;
         	<?php 
-	        	function displayScripture($value)
-				{
-				  echo "Book - " . $value . "</br>";
-				}
-
 	        	foreach ($db->query('SELECT photo_path FROM photos') as $row)
 				{
-					echo "<a src=\"" . $row['photo_path'] . "\" width=\"400px\" length=\"300px\">";
+					//echo "<a src=\"" . $row['photo_path'] . "\" width=\"400px\" length=\"300px\">";
 				}
 
         	?>
