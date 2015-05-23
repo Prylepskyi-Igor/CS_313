@@ -24,9 +24,9 @@
     <body>
         <header class="page_header">
         	<?php 
-        		$statement = $db->query('SELECT album_name FROM album WHERE A_ID = 1');
+        		$statement = $db->query('SELECT album_name FROM album');
 				$row = $statement->fetch(PDO::FETCH_ASSOC);
-				echo "<h1 class=\"page_header\">" . $row['album_name'] . "</h1>";
+				echo "<h1 class=\"page_header\">" . $row[0] . "</h1>";
         	?>
         </header>
         
