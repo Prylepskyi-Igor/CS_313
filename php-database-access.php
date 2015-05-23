@@ -35,7 +35,7 @@
         	<?php 
         		foreach ($db->query('SELECT album_note FROM albums WHERE A_ID = 1') as $row)
 				{
-					echo "<h1 class=\"page_header\">" . $row['album_note'] . "</h1>";
+					echo "<p class=\"page_header\">" . $row['album_note'] . "</p>";
 				}
 
 	        	foreach ($db->query('SELECT photo_path FROM photos') as $row)
