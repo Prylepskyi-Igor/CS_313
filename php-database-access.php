@@ -11,14 +11,29 @@
 		$db = loadDatabase();
     ?>
     <title>Scripture Resources</title>
+    <script>
+        $(document).ready(function(){
+            $("footer > a").hover(function(){
+                $("footer > a").css("color", "green");
+                },function(){
+                $("footer > a").css("color", "black");
+            });
+        });
+    </script>
 </head>
     <body>
         <header class="page_header">
-            <h1 class="page_header">Scripture Resources</h1>
+        	<?php 
+	        	$db->query('SELECT album_name FROM album WHERE id = 1');
+				echo "<h1 class=\"page_header\">". $db['album_name'] . "</h1>";
+        	?>
         </header>
         
         <main>
         	<?php 
+        		$db->query('SELECT album_note FROM album WHERE id = 1');
+				echo "<p>" . $db['album_note'] . "</p>";
+
 	        	foreach ($db->query('SELECT photo_path FROM photos') as $row)
 				{
 					echo "<img class=\"photos\" src=\"" . $row['photo_path'] . "\" width=\"400px\" length=\"300px\" />";
