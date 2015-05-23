@@ -24,7 +24,7 @@
     <body>
         <header class="page_header">
         	<?php 
-        		foreach ($db->query('SELECT photo_path FROM photos WHERE A_ID = 1') as $row)
+        		foreach ($db->query('SELECT photo_path FROM photos') as $row)
 				{
 					echo "<h1 class=\"page_header\">" . $row['photo_path'] . "</h1>";
 				}
