@@ -18,11 +18,10 @@
         </header>
         
         <main>
-        	<img src="pics/pic1.jpg" width="400px" length="300px" />;
         	<?php 
 	        	foreach ($db->query('SELECT photo_path FROM photos') as $row)
 				{
-					//echo "<a src=\"" . $row['photo_path'] . "\" width=\"400px\" length=\"300px\">";
+					echo "<img src=\"" . $row['photo_path'] . "\" width=\"400px\" length=\"300px\" />";
 				}
 
         	?>
