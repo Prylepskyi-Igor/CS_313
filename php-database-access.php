@@ -24,14 +24,14 @@
     <body>
         <header class="page_header">
         	<?php 
-	        	$db->query('SELECT album_name FROM album WHERE id = 1');
+	        	$db->query('SELECT album_name FROM album WHERE A_ID = 1');
 				echo "<h1 class=\"page_header\">". $db['album_name'] . "</h1>";
         	?>
         </header>
         
         <main>
         	<?php 
-        		$db->query('SELECT album_note FROM album WHERE id = 1');
+        		$db->query('SELECT album_note FROM album WHERE A_ID = 1');
 				echo "<p>" . $db['album_note'] . "</p>";
 
 	        	foreach ($db->query('SELECT photo_path FROM photos') as $row)
