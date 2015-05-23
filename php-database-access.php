@@ -29,7 +29,7 @@
 				$stmt->execute();
 				$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-				echo "<h1 class=\"page_header\">" . $rows[0] . "</h1>";
+				echo "<h1 class=\"page_header\">" . $rows . "</h1>";
         	?>
         </header>
         
