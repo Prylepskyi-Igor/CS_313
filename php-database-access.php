@@ -24,12 +24,10 @@
     <body>
         <header class="page_header">
         	<?php 
-        		$stmt = $db->prepare('SELECT album_name FROM album WHERE album_name=:album_name');
-				$stmt->bindValue(':album_name', 'Yellowstone', PDO::PARAM_STR);
-				$stmt->execute();
-				$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-				echo "<h1 class=\"page_header\">" . $rows['album_name'] . "</h1>";
+        		foreach ($db->query('SELECT photo_path FROM photos WHERE A_ID = 1') as $row)
+				{
+					echo "<h1 class=\"page_header\">" . $row['photo_path'] . "</h1>";
+				}
         	?>
         </header>
         
