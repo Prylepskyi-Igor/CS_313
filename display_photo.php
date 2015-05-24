@@ -21,7 +21,7 @@
 
         <main>
         	<?php 
-            echo "<div id=\"single_photo\">"
+            echo "<div id=\"single_photo\">";
             echo "<img src=\"" . $_SESSION["pic_path"] . "\"/><br>";
             echo "<p>" . $_SESSION["pic_note"] . "</p>";
             echo "</div>";
