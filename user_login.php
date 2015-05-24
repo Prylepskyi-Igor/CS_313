@@ -10,7 +10,7 @@
 
     <?php 
         session_start();
-        
+
         require("dbConnector.php");
 
         $db = loadDatabase();
@@ -40,7 +40,7 @@
 
             foreach ($db->query('SELECT user_name, user_id FROM users') as $row)
             {
-                echo "<a href=\"user_login.php?user_id=" . $row['user_id'] . "\">" . $row['user_name'] . "</a>";
+                echo "<a href=\"user_login.php?user_id=" . $row['user_id'] . "\">" . $row['user_name'] . "</a><br>";
             }
             ?>
         </main>

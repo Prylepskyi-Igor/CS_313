@@ -46,7 +46,7 @@
         </main>
 
         <footer class="page_footer">
-            <a class="page_footer" href="user_login.php">Back to user selection/a>
+            <a class="page_footer" href="user_login.php">Back to user selection</a>
         </footer>
     </body>
 </html>
