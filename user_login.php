@@ -23,8 +23,8 @@
 
         <main>
         	<?php 
-            if (isset($_GET['user_id'])) {
-                $_SESSION["user_id"] = $_GET['user_id'];
+            if (isset($_GET['A_ID'])) {
+                $_SESSION["A_ID"] = $_GET['A_ID'];
 
                 ob_start(); 
 
@@ -38,9 +38,9 @@
                 header( "Location: $url" );
             }
 
-            foreach ($db->query('SELECT user_name, user_id FROM users') as $row)
+            foreach ($db->query('SELECT user_name, A_ID FROM users') as $row)
             {
-                echo "<a href=\"user_login.php?user_id=" . $row['user_id'] . "\">" . $row['user_name'] . "</a><br>";
+                echo "<a href=\"user_login.php?A_ID=" . $row['A_ID'] . "\">" . $row['user_name'] . "</a><br>";
             }
             ?>
         </main>
