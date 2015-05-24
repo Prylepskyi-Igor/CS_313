@@ -4,8 +4,7 @@
 }
 
 .single_photo {
-	left: 40%;
-    right: 40%;
+	position: center;
 }
 
 .page_footer {
