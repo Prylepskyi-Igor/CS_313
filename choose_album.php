@@ -10,6 +10,10 @@
 
     <?php 
         session_start();
+        
+        require("dbConnector.php");
+
+        $db = loadDatabase();
     ?>
 </head>
     <body>

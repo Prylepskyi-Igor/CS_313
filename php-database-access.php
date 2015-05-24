@@ -8,6 +8,10 @@
               media="screen">
     <?php 
     	session_start();
+        
+        require("dbConnector.php");
+
+        $db = loadDatabase();
     ?>
     <title>Album</title>
 </head>
