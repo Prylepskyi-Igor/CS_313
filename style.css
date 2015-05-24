@@ -3,7 +3,12 @@
 	text-align: center;
 }
 
-.page_footer, .single_photo {
+.single_photo {
+	left: 40%;
+    right: 40%;
+}
+
+.page_footer {
 	background: none repeat scroll 0 0 transparent;
     bottom: 0;
     position: fixed;
