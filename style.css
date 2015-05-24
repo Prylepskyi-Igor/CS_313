@@ -4,7 +4,9 @@
 }
 
 #single_photo {
-	position: center;
+	width: 40%;
+	margin-right: 30%;
+	margin-left: 30%;
 }
 
 .page_footer {
