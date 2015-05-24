@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="style.css" 
               media="screen">
     <?php 
+    	session_start();
+
 	    require("dbConnector.php");
 
 		$db = loadDatabase();
@@ -30,10 +32,8 @@
 					echo "<p class=\"page_header\">" . $row['album_note'] . "</p>";
 				}
 
-	        	foreach ($db->query('SELECT photo_path FROM photos') as $row)
+	        	foreach ($db->query('SELECT photo_path, photo_note, photo_name FROM photos') as $row)
 				{
-					session_start();
-
 					$_SESSION["pic_note"] = $row['photo_note'];
 					$_SESSION["pic_name"] = $row['photo_name'];
 					$_SESSION["pic_path"] = $row['photo_path'];
