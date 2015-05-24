@@ -3,7 +3,7 @@
 	text-align: center;
 }
 
-.page_footer {
+.page_footer, .single_photo {
 	background: none repeat scroll 0 0 transparent;
     bottom: 0;
     position: fixed;
