@@ -32,7 +32,7 @@
 					echo "<p class=\"page_header\">" . $row['album_note'] . "</p>";
 				}
 
-	        	foreach ($db->query('SELECT photo_path, photo_note, photo_name FROM photos') as $row)
+	        	foreach ($db->query('SELECT photo_path, photo_note, photo_name FROM photos WHERE A_ID = ' . $_SESSION["A_ID"]) as $row)
 				{
 					$_SESSION["pic_note"] = $row['photo_note'];
 					$_SESSION["pic_name"] = $row['photo_name'];
