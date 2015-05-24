@@ -5,8 +5,7 @@
 
 #single_photo {
 	width: 450px;
-	margin-right: 40%;
-	margin-left: 40%;
+	margin: 0 auto;
 }
 
 .page_footer {
