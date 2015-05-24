@@ -29,7 +29,7 @@
         </main>
 
         <footer class="page_footer">
-            <a class="page_footer" href="assignments.php">To assignments page</a>
+            <a class="page_footer" href="php-database-access.php">Back to album</a>
         </footer>
     </body>
 </html>

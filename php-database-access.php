@@ -18,7 +18,7 @@
     <body>
         <header class="page_header">
         	<?php 
-        		foreach ($db->query('SELECT album_name FROM albums WHERE A_ID = 1') as $row)
+        		foreach ($db->query('SELECT album_name FROM albums WHERE A_ID = '. $_SESSION["A_ID"]) as $row)
 				{
 					echo "<h1 class=\"page_header\">" . $row['album_name'] . "</h1>";
 				}
@@ -45,7 +45,7 @@
         </main>
 
         <footer class="page_footer">
-            <a class="page_footer" href="assignments.php">To assignments page</a>
+            <a class="page_footer" href="choose_album.php">Back to album selection</a>
         </footer>
     </body>
 </html>
