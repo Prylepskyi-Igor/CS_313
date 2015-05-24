@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="footer_script.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" 
               media="screen">
     <?php 
@@ -11,15 +12,6 @@
 		$db = loadDatabase();
     ?>
     <title>Album</title>
-    <script>
-        $(document).ready(function(){
-            $("footer > a").hover(function(){
-                $("footer > a").css("color", "green");
-                },function(){
-                $("footer > a").css("color", "black");
-            });
-        });
-    </script>
 </head>
     <body>
         <header class="page_header">
@@ -40,7 +32,13 @@
 
 	        	foreach ($db->query('SELECT photo_path FROM photos') as $row)
 				{
-					echo "<a href=\"" . $row['photo_path'] . "\"><img class=\"photos\" href=\"" . $row['photo_path'] . "\" src=\"" . $row['photo_path'] . "\" width=\"400px\" length=\"300px\" /></a>";
+					session_start();
+
+					$_SESSION["pic_note"] = $row['photo_note'];
+					$_SESSION["pic_name"] = $row['photo_name'];
+					$_SESSION["pic_path"] = $row['photo_path'];
+
+					echo "<a href=\"display_photo.php\"><img class=\"photos\" href=\"" . $row['photo_path'] . "\" src=\"" . $row['photo_path'] . "\" width=\"400px\" length=\"300px\" /></a>";
 				}
 
         	?>
