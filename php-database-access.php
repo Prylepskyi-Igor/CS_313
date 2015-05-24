@@ -8,10 +8,6 @@
               media="screen">
     <?php 
     	session_start();
-
-	    require("dbConnector.php");
-
-		$db = loadDatabase();
     ?>
     <title>Album</title>
 </head>
@@ -27,7 +23,7 @@
         
         <main>
         	<?php 
-        		foreach ($db->query('SELECT album_note FROM albums WHERE A_ID = 1') as $row)
+        		foreach ($db->query('SELECT album_note FROM albums WHERE A_ID = ' . $_SESSION["A_ID"]) as $row)
 				{
 					echo "<p class=\"page_header\">" . $row['album_note'] . "</p>";
 				}

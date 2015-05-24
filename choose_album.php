@@ -14,7 +14,7 @@
 </head>
     <body>
         <header class="page_header">
-            <h1>Please, select the user:</h1>
+            <h1>Please, select the album:</h1>
         </header>
 
         <main>
@@ -34,7 +34,7 @@
                 header( "Location: $url" );
             }
 
-            foreach ($db->query('SELECT A_ID, album_name FROM albums') as $row)
+            foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE A_ID =' . $_SESSION["user_id"]) as $row)
             {
                 echo "<a href=\"user_login.php?A_ID=" . $row['A_ID'] . "\">" . $row['album_name'] . "</a>";
             }
