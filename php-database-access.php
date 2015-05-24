@@ -10,7 +10,7 @@
 
 		$db = loadDatabase();
     ?>
-    <title>Scripture Resources</title>
+    <title>Album</title>
     <script>
         $(document).ready(function(){
             $("footer > a").hover(function(){
@@ -40,7 +40,7 @@
 
 	        	foreach ($db->query('SELECT photo_path FROM photos') as $row)
 				{
-					echo "<img class=\"photos\" href=\"" . $row['photo_path'] . "\" src=\"" . $row['photo_path'] . "\" width=\"400px\" length=\"300px\" />";
+					echo "<a href=\"" . $row['photo_path'] . "\"><img class=\"photos\" href=\"" . $row['photo_path'] . "\" src=\"" . $row['photo_path'] . "\" width=\"400px\" length=\"300px\" /></a>";
 				}
 
         	?>
