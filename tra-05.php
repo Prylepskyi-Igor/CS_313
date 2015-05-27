@@ -22,18 +22,27 @@
         
         <main>
         	<?php 
-        		echo "<form action=\"process-tra-05.php\">
+        	if (isset($_GET['book']) && isset($_GET['chapter']) && isset($_GET['verse']) && isset($_GET['content'])) {
+        		$db->query('INSERT INTO Scriptures (book, chapter, verse, content)
+                    VALUES (' . $_GET["book"] . ',' . $_GET["chapter"] . ',' . $_GET["verse"] . ',' . $_GET["content"] . ')');
+
+        		echo "Scripture was added successfully!<br>";
+            }
+            else
+            	echo "All fields are required!";
+
+        		echo "<form action=\"tra-05.php\" method=\"get\">
 				  Book: <input type=\"text\" name=\"book\"><br>
 				  Chapter: <input type=\"text\" name=\"chapter\"><br>
 				  Verse: <input type=\"text\" name=\"verse\"><br>
-				  Content: <textarea rows=\"4\" cols=\"50\"></textarea><br>";
+				  Content: <textarea rows=\"4\" cols=\"50\" name=\"content\"></textarea><br>";
 
 				  foreach ($db->query('SELECT name FROM Topics') as $row)
 				  {
-					echo "<input type=\"checkbox\" name=\"" . $row['name'] . "\" value=\"" . $row['name'] . "\">" . $row['name'];
+					echo "<input type=\"checkbox\" name=\"" . $row['name'] . "\" value=\"" . $row['name'] . "\">" . $row['name'] . "<br>";
 				  }
 
-				echo "<br><input type=\"submit\" value=\"Submit\">
+				echo "<input type=\"submit\" value=\"Submit\">
 				</form>";
         	?>
         </main>
