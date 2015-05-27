@@ -17,7 +17,7 @@
 </head>
     <body>
         <header class="page_header">
-        	
+        	<h1 class="page_header">Scripture Database Connect</h1>
         </header>
         
         <main>
@@ -26,12 +26,12 @@
 				  Book: <input type=\"text\" name=\"book\"><br>
 				  Chapter: <input type=\"text\" name=\"chapter\"><br>
 				  Verse: <input type=\"text\" name=\"verse\"><br>
-				  Content: <textarea rows=\"4\" cols=\"50\"></textarea>";
+				  Content: <textarea rows=\"4\" cols=\"50\"></textarea><br>";
 
-				  foreach ($db->query('SELECT name FROM Topic') as $row)
-				{
+				  foreach ($db->query('SELECT name FROM Topics') as $row)
+				  {
 					echo "<input type=\"checkbox\" name=\"" . $row . "\" value=\"" . $row . "\">" . $row;
-				}
+				  }
 
 				echo "<input type=\"submit\" value=\"Submit\">
 				</form>";
