@@ -25,7 +25,7 @@
         	if (isset($_GET['book'])) {
         		$db->query('INSERT INTO Scriptures (book, chapter, verse, content)
                     VALUES (' . $_GET["book"] . ', ' . $_GET["chapter"] . ', ' . $_GET["verse"] . 
-                    	', ' . $_GET["content"] . ')');
+                    	', ' . $_GET["content"] . ');');
 
         		echo "Scripture was added successfully!<br>";
             }
@@ -49,7 +49,7 @@
         </main>
 
         <footer class="page_footer">
-            <a class="page_footer" href="choose_album.php">Back to album selection</a>
+            <a class="page_footer" href="assignments.php">Back to assignments</a>
         </footer>
     </body>
 </html>
