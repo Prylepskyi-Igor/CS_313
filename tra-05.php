@@ -22,7 +22,7 @@
         
         <main>
         	<?php 
-        		echo "<form action=\"connect_scripture_database.php\">
+        		echo "<form action=\"process-tra-05.php\">
 				  Book: <input type=\"text\" name=\"book\"><br>
 				  Chapter: <input type=\"text\" name=\"chapter\"><br>
 				  Verse: <input type=\"text\" name=\"verse\"><br>
@@ -30,10 +30,10 @@
 
 				  foreach ($db->query('SELECT name FROM Topics') as $row)
 				  {
-					echo "<input type=\"checkbox\" name=\"" . $row . "\" value=\"" . $row . "\">" . $row;
+					echo "<input type=\"checkbox\" name=\"" . $row['name'] . "\" value=\"" . $row['name'] . "\">" . $row['name'];
 				  }
 
-				echo "<input type=\"submit\" value=\"Submit\">
+				echo "<br><input type=\"submit\" value=\"Submit\">
 				</form>";
         	?>
         </main>
