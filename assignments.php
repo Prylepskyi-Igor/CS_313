@@ -19,7 +19,8 @@
                     <a href="team-readiness-activity.html">Team Readiness Activity</a><br>
                     <a href="php-survey.php">PHP Survey</a><br>
                     <a href="php-tra.php">PHP DB</a><br>
-                    <a href="user_login.php">PHP DB Access</a>
+                    <a href="user_login.php">PHP DB Access</a><br>
+                    <a href="tra-05.php">Scripture Database Connect</a>
                 </td>
             </table>
         </main>
