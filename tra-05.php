@@ -22,24 +22,25 @@
         
         <main>
         	<?php 
-        	if (isset($_GET['book']) && isset($_GET['chapter']) && isset($_GET['verse']) && isset($_GET['content'])) {
+        	if (isset($_GET['book'])) {
         		$db->query('INSERT INTO Scriptures (book, chapter, verse, content)
-                    VALUES (' . $_GET["book"] . ',' . $_GET["chapter"] . ',' . $_GET["verse"] . ',' . $_GET["content"] . ')');
+                    VALUES (' . $_GET["book"] . ', ' . $_GET["chapter"] . ', ' . $_GET["verse"] . 
+                    	', ' . $_GET["content"] . ')');
 
         		echo "Scripture was added successfully!<br>";
             }
-            else
-            	echo "All fields are required!";
+            	
 
         		echo "<form action=\"tra-05.php\" method=\"get\">
-				  Book: <input type=\"text\" name=\"book\"><br>
-				  Chapter: <input type=\"text\" name=\"chapter\"><br>
-				  Verse: <input type=\"text\" name=\"verse\"><br>
-				  Content: <textarea rows=\"4\" cols=\"50\" name=\"content\"></textarea><br>";
+				  Book: <input type=\"text\" name=\"book\" required><br>
+				  Chapter: <input type=\"text\" name=\"chapter\" required><br>
+				  Verse: <input type=\"text\" name=\"verse\" required><br>
+				  Content: <textarea rows=\"4\" cols=\"50\" name=\"content\" required></textarea><br>";
 
 				  foreach ($db->query('SELECT name FROM Topics') as $row)
 				  {
-					echo "<input type=\"checkbox\" name=\"" . $row['name'] . "\" value=\"" . $row['name'] . "\">" . $row['name'] . "<br>";
+					echo "<input type=\"checkbox\" name=\"" . $row['name'] . "\" value=\"" . 
+					$row['name'] . "\">" . $row['name'] . "<br>";
 				  }
 
 				echo "<input type=\"submit\" value=\"Submit\">
