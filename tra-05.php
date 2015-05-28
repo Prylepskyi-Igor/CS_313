@@ -23,14 +23,14 @@
         <main>
         	<?php 
         	if (isset($_GET['book'])) {
-        		$db->query('INSERT INTO Scriptures (book, chapter, verse, content)
+        		$db->prepare('INSERT INTO Scriptures (book, chapter, verse, content)
                     VALUES (' . $_GET["book"] . ', ' . $_GET["chapter"] . ', ' . $_GET["verse"] . 
                     	', ' . $_GET["content"] . ');');
 
         		foreach ($db->query('SELECT name FROM Topics') as $row)
 				{
         			if (isset($_GET[$row['name']])) {
-        				$db->query('INSERT INTO scriptures_topics (scripture_id, topic_id)
+        				$db->prepare('INSERT INTO scriptures_topics (scripture_id, topic_id)
                 		    VALUES (' . $mysqli->insert_id . ', ' . $_GET[$row['name']] . ');');
         			}
         		}
