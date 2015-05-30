@@ -42,10 +42,13 @@
                 $album_name = $_GET['album'];
                 $U_ID = $_SESSION["newId"];
 
+                echo $album_name . "   " . $U_ID . "<br>";
+
                 $stmt = $db->prepare('INSERT INTO albums (album_name, create_date) VALUES(:album_name, CURDATE())');
                 $stmt->bindValue(':album_name', $album_name);
                 $stmt->execute();
 
+                //
                 $newA_ID = $mysqli->insert_id;
                 $_SESSION["A_ID"] = $newA_ID;
 
