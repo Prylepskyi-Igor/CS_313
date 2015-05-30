@@ -37,11 +37,26 @@
                 
                 header( "Location: $url" );
             }
+            
+            if (isset($_GET['user'])) {
+                $user_name = $_GET['user'];
+
+                $stmt = $db->prepare('INSERT INTO users (user_name) VALUES(:user_name)');
+                $stmt->bindValue(':user_name', $user_name);
+                $stmt->execute();
+
+                $stmt->closeCursor();
+            }
 
             foreach ($db->query('SELECT user_name, A_ID FROM users') as $row)
             {
                 echo "<a href=\"user_login.php?A_ID=" . $row['A_ID'] . "\">" . $row['user_name'] . "</a><br>";
             }
+
+            echo "<form action=\"user_login.php\" method=\"get\">";
+            echo "  <input type=\"text\" name=\"user\">";
+            echo "  <input type=\"submit\">";
+            echo "</form>";
             ?>
         </main>
 
