@@ -45,7 +45,7 @@
                 $stmt->bindValue(':album_name', $album_name);
                 $stmt->execute();
 
-                $newId = $pdo->lastInsertId();
+                $newId = $stmt->lastInsertId();
 
                 $stmt = $db->prepare('INSERT INTO users (A_ID) VALUES(:newId)');
                 $stmt->bindValue(':newId', $newId);
