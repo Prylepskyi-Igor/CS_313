@@ -45,7 +45,7 @@
                 $stmt->bindValue(':album_name', $album_name);
                 $stmt->execute();
 
-                $newId = $stmt->lastInsertId();
+                $newId = $mysqli->insert_id;
 
                 $stmt = $db->prepare('INSERT INTO users (A_ID) VALUES(:newId)');
                 $stmt->bindValue(':newId', $newId);
