@@ -45,7 +45,12 @@
                 $stmt->bindValue(':user_name', $user_name);
                 $stmt->execute();
 
-                $_SESSION["newId"] = $mysqli->insert_id;
+                $stmt = $mysqli->prepare("SELECT MAX(A_ID) FROM albums")) {
+                $stmt->execute();
+
+                /* bind variables to prepared statement */
+                $stmt->bind_result($id);
+                $_SESSION["newId"] = $id;
 
                 $stmt->closeCursor();
             }
