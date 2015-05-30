@@ -59,7 +59,7 @@
                 echo "<a href=\"choose_album.php?A_ID=" . $row['A_ID'] . "\">" . $row['album_name'] . "</a>";
             }
 
-            echo "<form action=\"user_album.php\" method=\"get\">";
+            echo "<form action=\"choose_album.php\" method=\"get\">";
             echo "  New Album: <input type=\"text\" name=\"album\">";
             echo "  <input type=\"submit\">";
             echo "</form>";
