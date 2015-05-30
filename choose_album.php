@@ -40,20 +40,20 @@
 
             if (isset($_GET['album'])) {
                 $album_name = $_GET['album'];
+                $U_ID = $_SESSION["newId"];
 
                 $stmt = $db->prepare('INSERT INTO albums (album_name, create_date) VALUES(:album_name, CURDATE())');
                 $stmt->bindValue(':album_name', $album_name);
                 $stmt->execute();
 
-                $newId = $mysqli->insert_id;
+                $newA_ID = $mysqli->insert_id;
 
-                $stmt = $db->prepare('INSERT INTO users (A_ID) VALUES(:newId)');
-                $stmt->bindValue(':newId', $newId);
+                $stmt = $db->prepare('INSERT INTO users (A_ID) VALUES(:newA_ID) WHERE user_id = :U_ID');
+                $stmt->bindValue(':U_ID', $U_ID);
+                $stmt->bindValue(':A_ID', $newA_ID);
                 $stmt->execute();
 
                 $stmt->closeCursor();
-
-                $_SESSION["A_ID"] = $newId;
             }
 
             foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE A_ID =' . $_SESSION["A_ID"]) as $row)
