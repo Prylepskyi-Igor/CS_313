@@ -47,6 +47,7 @@
                 $stmt->execute();
 
                 $newA_ID = $mysqli->insert_id;
+                $_SESSION["A_ID"] = $newA_ID;
 
                 $stmt = $db->prepare('INSERT INTO users (A_ID) VALUES(:newA_ID) WHERE user_id = :U_ID');
                 $stmt->bindValue(':U_ID', $U_ID);

@@ -45,9 +45,7 @@
                 $stmt->bindValue(':user_name', $user_name);
                 $stmt->execute();
 
-                $newId = $mysqli->insert_id;
-
-                $_SESSION["newId"] = $newId;
+                $_SESSION["newId"] = $mysqli->insert_id;
 
                 $stmt->closeCursor();
             }
