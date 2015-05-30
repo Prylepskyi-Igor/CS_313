@@ -52,6 +52,8 @@
                 $stmt->execute();
 
                 $stmt->closeCursor();
+
+                $_SESSION["A_ID"] = $newId;
             }
 
             foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE A_ID =' . $_SESSION["A_ID"]) as $row)
