@@ -23,14 +23,29 @@
         <main>
         	<?php 
         	if (isset($_GET['book'])) {
-        		$db->prepare('INSERT INTO Scriptures (book, chapter, verse, content)
-                    VALUES (' . $_GET["book"] . ', ' . $_GET["chapter"] . ', ' . $_GET["verse"] . 
-                    	', ' . $_GET["content"] . ');');
+                
+                $book = $_GET['book'];
+                $chapter = $_GET['chapter'];
+                $verse = $_GET['verse'];
+                $content = $_GET['content'];
+
+                $stmt = $db->prepare('INSERT INTO scriptures (book, chapter, verse, content) VALUES(:book, :chapter, :verse, :content)');
+                $stmt->bindValue(':book', $book);
+                $stmt->bindValue(':chapter', $chapter);
+                $stmt->bindValue(':verse', $verse);
+                $stmt->bindValue(':content', $content);
+                $stmt->execute();
+
+                $stmt->closeCursor();
+
+        		//$db->query('INSERT INTO Scriptures (book, chapter, verse, content)
+                //    VALUES (' . $_GET["book"] . ', ' . $_GET["chapter"] . ', ' . $_GET["verse"] . 
+                //    	', ' . $_GET["content"] . ');');
 
         		foreach ($db->query('SELECT name FROM Topics') as $row)
 				{
         			if (isset($_GET[$row['name']])) {
-        				$db->prepare('INSERT INTO scriptures_topics (scripture_id, topic_id)
+        				$db->query('INSERT INTO scriptures_topics (scripture_id, topic_id)
                 		    VALUES (' . $mysqli->insert_id . ', ' . $_GET[$row['name']] . ');');
         			}
         		}
