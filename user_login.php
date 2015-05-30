@@ -41,7 +41,7 @@
             if (isset($_GET['user'])) {
                 $user_name = $_GET['user'];
 
-                $stmt = $db->prepare('INSERT INTO users (user_name) VALUES(:user_name)');
+                $stmt = $db->prepare('INSERT INTO users (user_name, create_date) VALUES(:user_name, CURDATE())');
                 $stmt->bindValue(':user_name', $user_name);
                 $stmt->execute();
 
@@ -54,7 +54,7 @@
             }
 
             echo "<form action=\"user_login.php\" method=\"get\">";
-            echo "  <input type=\"text\" name=\"user\">";
+            echo "  New User: <input type=\"text\" name=\"user\">";
             echo "  <input type=\"submit\">";
             echo "</form>";
             ?>

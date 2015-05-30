@@ -38,10 +38,25 @@
                 header( "Location: $url" );
             }
 
+            if (isset($_GET['album'])) {
+                $album_name = $_GET['album'];
+
+                $stmt = $db->prepare('INSERT INTO albums (album_name, create_date) VALUES(:album_name, CURDATE())');
+                $stmt->bindValue(':album_name', $album_name);
+                $stmt->execute();
+
+                $stmt->closeCursor();
+            }
+
             foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE A_ID =' . $_SESSION["A_ID"]) as $row)
             {
                 echo "<a href=\"choose_album.php?A_ID=" . $row['A_ID'] . "\">" . $row['album_name'] . "</a>";
             }
+
+            echo "<form action=\"user_login.php\" method=\"get\">";
+            echo "  New Album: <input type=\"text\" name=\"album\">";
+            echo "  <input type=\"submit\">";
+            echo "</form>";
             ?>
         </main>
 
