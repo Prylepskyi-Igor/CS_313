@@ -45,6 +45,12 @@
                 $stmt->bindValue(':album_name', $album_name);
                 $stmt->execute();
 
+                $newId = $pdo->lastInsertId();
+
+                $stmt = $db->prepare('INSERT INTO users (A_ID) VALUES(:newId)');
+                $stmt->bindValue(':newId', $newId);
+                $stmt->execute();
+
                 $stmt->closeCursor();
             }
 
@@ -53,7 +59,7 @@
                 echo "<a href=\"choose_album.php?A_ID=" . $row['A_ID'] . "\">" . $row['album_name'] . "</a>";
             }
 
-            echo "<form action=\"user_login.php\" method=\"get\">";
+            echo "<form action=\"user_album.php\" method=\"get\">";
             echo "  New Album: <input type=\"text\" name=\"album\">";
             echo "  <input type=\"submit\">";
             echo "</form>";
