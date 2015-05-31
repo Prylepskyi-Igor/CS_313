@@ -16,35 +16,31 @@
         $db = loadDatabase();
 
         if (isset($_GET['pic_note'])) {
-                $stmt = $db->prepare('UPDATE photos SET photo_note = :photo_note');
-                $stmt->bindValue(':photo_note', $_GET['pic_note']);
-                $stmt->execute();
-                $stmt->closeCursor();
+            $stmt = $db->prepare('UPDATE photos SET photo_note = :photo_note');
+            $stmt->bindValue(':photo_note', $_GET['pic_note']);
+            $stmt->execute();
+            $stmt->closeCursor();
 
-                $_SESSION["pic_note"] = $_GET['pic_note'];
-            }
+            $_SESSION["pic_note"] = $_GET['pic_note'];
+        }
 
-            if (isset($_GET['pic_name'])) {
-                $stmt = $db->prepare('UPDATE photos SET photo_name = :photo_name');
-                $stmt->bindValue(':photo_name', $_GET['pic_name']);
-                $stmt->execute();
-                $stmt->closeCursor();
+        if (isset($_GET['pic_name'])) {
+            $stmt = $db->prepare('UPDATE photos SET photo_name = :photo_name');
+            $stmt->bindValue(':photo_name', $_GET['pic_name']);
+            $stmt->execute();
+            $stmt->closeCursor();
 
-                $_SESSION["pic_name"] = $_GET['pic_name'];
-            }
+            $_SESSION["pic_name"] = $_GET['pic_name'];
+        }
+
+        if (isset($_GET['delete'])) {
+            $stmt = $db->prepare('DELETE FROM photos WHERE P_ID = :P_ID');
+            $stmt->bindValue(':P_ID', $_SESSION["P_ID"]);
+            $stmt->execute();
+        }
+        
     ?>
 
-    <script type="text/javascript">
-    function myfunc() {
-        <?php 
-        $stmt = $db->prepare('DELETE FROM photos WHERE P_ID = :P_ID');
-        $stmt->bindValue(':P_ID', $_SESSION["P_ID"]);
-        $stmt->execute();
-        ?>
-
-        window.location="php-database-access.php";
-    }
-    </script>
 
 </head>
     <body>
@@ -60,11 +56,11 @@
 
             echo "<div id=\"single_photo\">";
             echo "<img src=\"" . $_SESSION["pic_path"] . "\"/><br>";
-            echo "<p><textarea rows=\"8\" cols=\"50\" name=\"pic_note\" value=\"" . $_SESSION["pic_note"] . "\"></textarea></p>";
+            echo "<p><textarea rows=\"8\" cols=\"50\" name=\"pic_note\">" . $_SESSION["pic_note"] . "</textarea></p>";
             echo "</div><br>";
 
             echo "<input type=\"submit\" value=\"Save\"><br>";
-            echo "<input type=\"button\" onclick=\"myfunc()\" value=\"Delete\">";
+            echo "<input type=\"button\" action=\"php-database-access.php?delete=true\" value=\"Delete\">";
             echo "</form>";
             ?>
         </main>
