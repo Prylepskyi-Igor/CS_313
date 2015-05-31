@@ -8,6 +8,8 @@
               media="screen">
     <?php 
     	session_start();
+
+        $_SESSION["P_ID"] = "";
         
         require("dbConnector.php");
 
