@@ -40,18 +40,9 @@
         $stmt = $db->prepare('DELETE FROM photos WHERE P_ID = :P_ID');
         $stmt->bindValue(':P_ID', $_SESSION["P_ID"]);
         $stmt->execute();
-
-        ob_start();
-
-        $url =  "php-database-access.php";
-
-        while (ob_get_status()) 
-        {
-            ob_end_clean();
-        }
-
-        header( "Location: $url" );
         ?>
+
+        window.location="php-database-access.php";
     }
     </script>
 
