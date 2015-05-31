@@ -60,7 +60,7 @@
             echo "</div><br>";
 
             echo "<input type=\"submit\" value=\"Save\"><br>";
-            echo "<input type=\"button\" action=\"https://php-megiddo.rhcloud.com/php-database-access.php?delete=true\" value=\"Delete\">";
+            echo "<input type=\"button\" formaction=\"php-database-access.php?delete=true\" value=\"Delete\">";
             echo "</form>";
             ?>
         </main>
