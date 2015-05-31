@@ -35,12 +35,18 @@
                 $stmt = $db->prepare('UPDATE photos SET photo_note = :photo_note');
                 $stmt->bindValue(':photo_note', $_GET['pic_note']);
                 $stmt->execute();
+                $stmt->closeCursor();
+
+                $_SESSION["pic_note"] = $_GET['pic_note'];
             }
 
             if (isset($_GET['pic_name'])) {
                 $stmt = $db->prepare('UPDATE photos SET photo_name = :photo_name');
                 $stmt->bindValue(':photo_name', $_GET['pic_name']);
                 $stmt->execute();
+                $stmt->closeCursor();
+
+                $_SESSION["pic_name"] = $_GET['pic_name'];
             }
             ?>
         </main>
