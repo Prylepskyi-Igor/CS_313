@@ -38,35 +38,32 @@
                 header( "Location: $url" );
             }
 
-            if (isset($_GET['album'])) {
-                $album_name = $_GET['album'];
-                $U_ID = $_SESSION["newId"];
-
-                echo $album_name . "   " . $U_ID . "<br>";
+            if (isset($_GET['user_id'])) {
+                echo $album_name . "   " . $_SESSION["user_id"] . "<br>";
 
                 // insert album into the database
-                $stmt = $db->prepare('INSERT INTO albums (album_name, create_date) VALUES(:album_name, CURDATE())');
-                $stmt->bindValue(':album_name', $album_name);
-                $stmt->execute();
+                //$stmt = $db->prepare('INSERT INTO albums (album_name, create_date) VALUES(:album_name, CURDATE())');
+                //$stmt->bindValue(':album_name', $album_name);
+                //$stmt->execute();
 
-                $stmt = $db->prepare("INSERT INTO users (A_ID) SELECT A_ID FROM albums WHERE user_id = :newId");
-                $stmt->bindValue(':newId', $U_ID);
-                $stmt->execute();
+                //$stmt = $db->prepare("INSERT INTO users (A_ID) SELECT A_ID FROM albums WHERE user_id = :newId");
+                //$stmt->bindValue(':newId', $U_ID);
+                //$stmt->execute();
 
                 // extract last album id from the database
                 //$stmt = $db->prepare("SELECT MAX(A_ID) FROM albums");
                 //$stmt->execute();
                 //$stmt->bind_result($id);
-//
+
                 //$stmt = $db->prepare('INSERT INTO users (A_ID) VALUES(:newA_ID) WHERE user_id = :U_ID');
                 //$stmt->bindValue(':U_ID', $U_ID);
                 //$stmt->bindValue(':A_ID', $newA_ID);
                 //$stmt->execute();
 
-                $stmt->closeCursor();
+                //$stmt->closeCursor();
             }
 
-            foreach ($db->query('SELECT A_ID, album_name FROM albums') as $row)
+            foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE ') as $row)
             {
                 echo "<a href=\"choose_album.php?A_ID=" . $row['A_ID'] . "\">" . $row['album_name'] . "</a><br>";
             }
