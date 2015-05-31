@@ -44,31 +44,31 @@
 
                 echo $album_name . "   " . $U_ID . "<br>";
 
-                //$stmt = $db->prepare('INSERT INTO albums (album_name, create_date) VALUES(:album_name, CURDATE())');
-                //$stmt->bindValue(':album_name', $album_name);
-                //$stmt->execute();
-//
-                ////
-                //$newA_ID = $mysqli->insert_id;
-                //$_SESSION["A_ID"] = $newA_ID;
-//
-                //$stmt = $db->prepare('INSERT INTO users (A_ID) VALUES(:newA_ID) WHERE user_id = :U_ID');
-                //$stmt->bindValue(':U_ID', $U_ID);
-                //$stmt->bindValue(':A_ID', $newA_ID);
-                //$stmt->execute();
-//
-                //$stmt->closeCursor();
+                $stmt = $db->prepare('INSERT INTO albums (album_name, create_date) VALUES(:album_name, CURDATE())');
+                $stmt->bindValue(':album_name', $album_name);
+                $stmt->execute();
+
+                //
+                $newA_ID = $mysqli->insert_id;
+                $_SESSION["A_ID"] = $newA_ID;
+
+                $stmt = $db->prepare('INSERT INTO users (A_ID) VALUES(:newA_ID) WHERE user_id = :U_ID');
+                $stmt->bindValue(':U_ID', $U_ID);
+                $stmt->bindValue(':A_ID', $newA_ID);
+                $stmt->execute();
+
+                $stmt->closeCursor();
             }
 
-            //foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE A_ID =' . $_SESSION["A_ID"]) as $row)
-            //{
-            //    echo "<a href=\"choose_album.php?A_ID=" . $row['A_ID'] . "\">" . $row['album_name'] . "</a>";
-            //}
-//
-            //echo "<form action=\"choose_album.php\" method=\"get\">";
-            //echo "  New Album: <input type=\"text\" name=\"album\">";
-            //echo "  <input type=\"submit\">";
-            //echo "</form>";
+            foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE A_ID =' . $_SESSION["A_ID"]) as $row)
+            {
+                echo "<a href=\"choose_album.php?A_ID=" . $row['A_ID'] . "\">" . $row['album_name'] . "</a>";
+            }
+
+            echo "<form action=\"choose_album.php\" method=\"get\">";
+            echo "  New Album: <input type=\"text\" name=\"album\">";
+            echo "  <input type=\"submit\">";
+            echo "</form>";
             ?>
         </main>
 
