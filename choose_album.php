@@ -38,17 +38,16 @@
                 header( "Location: $url" );
             }
 
-            //if (isset($_GET['user_id'])) {
-                echo $album_name . "   " . $_SESSION["user_id"] . "<br>";
-
+            if (isset($_GET['album_name'])) {
                 // insert album into the database
-                //$stmt = $db->prepare('INSERT INTO albums (album_name, create_date) VALUES(:album_name, CURDATE())');
-                //$stmt->bindValue(':album_name', $album_name);
-                //$stmt->execute();
+                $stmt = $db->prepare('INSERT INTO albums (album_name, create_date) VALUES(:album_name, CURDATE())');
+                $stmt->bindValue(':album_name', $_GET['album_name']);
+                $stmt->execute();
 
-                //$stmt = $db->prepare("INSERT INTO users (A_ID) SELECT A_ID FROM albums WHERE user_id = :newId");
-                //$stmt->bindValue(':newId', $U_ID);
-                //$stmt->execute();
+                // copy A_ID from albums table to users table
+                $stmt = $db->prepare('INSERT INTO users (A_ID) SELECT A_ID FROM albums WHERE user_id = :newId');
+                $stmt->bindValue(':newId', $_SESSION["user_id"]);
+                $stmt->execute();
 
                 // extract last album id from the database
                 //$stmt = $db->prepare("SELECT MAX(A_ID) FROM albums");
@@ -61,15 +60,15 @@
                 //$stmt->execute();
 
                 //$stmt->closeCursor();
-            //}
+            }
 
-            foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE ') as $row)
+            foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE A_ID = ' . $_SESSION['A_ID']) as $row)
             {
                 echo "<a href=\"choose_album.php?A_ID=" . $row['A_ID'] . "\">" . $row['album_name'] . "</a><br>";
             }
 
             echo "<form action=\"choose_album.php\" method=\"get\">";
-            echo "  New Album: <input type=\"text\" name=\"album\">";
+            echo "  New Album: <input type=\"text\" name=\"album_name\">";
             echo "  <input type=\"submit\">";
             echo "</form>";
             ?>
