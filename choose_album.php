@@ -45,8 +45,8 @@
                 $stmt->execute();
 
                 // copy A_ID from albums table to users table
-                $stmt = $db->prepare('UPDATE users SET A_ID = 99 WHERE user_id = :newId');
-                $stmt->bindValue(':newId', $_SESSION["user_id"]);
+                $stmt = $db->prepare('UPDATE users SET A_ID = 99 WHERE user_id = MAX(user_id)');
+                //$stmt->bindValue(':newId', $_SESSION["user_id"]);
                 $stmt->execute();
 
                 // extract last album id from the database
