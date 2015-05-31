@@ -28,7 +28,7 @@
             echo "<p><input type=\"text\" name=\"pic_note\" value=\"" . $_SESSION["pic_note"] . "\"></input></p>";
             echo "</div><br>";
 
-            echo "  <input type=\"Save Changes\">";
+            echo "<input type=\"submit\" value=\"Save Changes\">";
             echo "</form>";
 
             if (isset($_GET['pic_note'])) {
