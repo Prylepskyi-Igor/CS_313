@@ -68,7 +68,7 @@
 
             foreach ($db->query('SELECT A_ID, album_name FROM albums') as $row)
             {
-                echo "<a href=\"choose_album.php?A_ID=" . $row['A_ID'] . "\">" . $row['album_name'] . "</a>";
+                echo "<a href=\"choose_album.php?A_ID=" . $row['A_ID'] . "\">" . $row['album_name'] . "</a><br>";
             }
 
             echo "<form action=\"choose_album.php\" method=\"get\">";

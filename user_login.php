@@ -47,7 +47,7 @@
                 $stmt->execute();
 
                 // extract last user id from the database
-                $stmt = $mysqli->prepare("SELECT MAX(user_id) FROM user");
+                $stmt = $db->prepare('SELECT MAX(user_id) FROM user');
                 $stmt->execute();
                 $stmt->bind_result($id);
 
