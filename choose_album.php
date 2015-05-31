@@ -45,7 +45,7 @@
                 $stmt->execute();
 
                 // copy A_ID from albums table to users table
-                $stmt = $db->prepare('UPDATE users SET A_ID = 99');
+                $stmt = $db->prepare('UPDATE users SET A_ID = :newId');
                 $stmt->bindValue(':newId', $_SESSION["user_id"]);
                 $stmt->execute();
 
