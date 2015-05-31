@@ -45,7 +45,7 @@
                 $stmt->execute();
 
                 // copy A_ID from albums table to users table
-                $stmt = $db->prepare('INSERT INTO users (A_ID) SELECT MAX(A_ID) FROM albums WHERE user_id = :newId');
+                $stmt = $db->prepare('UPDATE users SET A_ID = 99 WHERE user_id = newId');
                 $stmt->bindValue(':newId', $_SESSION["user_id"]);
                 $stmt->execute();
 
