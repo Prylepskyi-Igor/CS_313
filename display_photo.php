@@ -15,7 +15,7 @@
     <body>
         <header class="page_header">
             <?php 
-            echo "<h1><input type=\"text\">" . $_SESSION["pic_name"] . "</input></h1>"
+            echo "<h1><input type=\"text\" value=\"" . $_SESSION["pic_name"] . "\"></input></h1>"
             ?>
         </header>
 
