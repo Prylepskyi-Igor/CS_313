@@ -49,13 +49,14 @@
                 $stmt->bindValue(':album_name', $album_name);
                 $stmt->execute();
 
-                $stmt = $mysqli->prepare("INSERT INTO users (A_ID)
+                $stmt = $db->prepare("INSERT INTO users (A_ID)
                 SELECT A_ID
-                FROM albums");
+                FROM albums 
+                WHERE A_ID = MAX(A_ID)");
                 $stmt->execute();
 
                 // extract last album id from the database
-                //$stmt = $mysqli->prepare("SELECT MAX(A_ID) FROM albums");
+                //$stmt = $db->prepare("SELECT MAX(A_ID) FROM albums");
                 //$stmt->execute();
                 //$stmt->bind_result($id);
 //
