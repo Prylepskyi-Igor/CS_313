@@ -66,7 +66,7 @@
                 $stmt->closeCursor();
             }
 
-            foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE A_ID =' . $_SESSION["newId"]) as $row)
+            foreach ($db->query('SELECT A_ID, album_name FROM albums') as $row)
             {
                 echo "<a href=\"choose_album.php?A_ID=" . $row['A_ID'] . "\">" . $row['album_name'] . "</a>";
             }
