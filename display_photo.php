@@ -47,7 +47,7 @@
 
             echo "<div id=\"single_photo\">";
             echo "<img src=\"" . $_SESSION["pic_path"] . "\"/><br>";
-            echo "<p><input type=\"text\" name=\"pic_note\" value=\"" . $_SESSION["pic_note"] . "\"></input></p>";
+            echo "<p><textarea rows=\"8\" cols=\"50\" name=\"pic_note\" value=\"" . $_SESSION["pic_note"] . "\"></textarea></p>";
             echo "</div><br>";
 
             echo "<input type=\"submit\" value=\"Save\"><br>";
