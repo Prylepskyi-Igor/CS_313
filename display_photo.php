@@ -33,6 +33,21 @@
                 $_SESSION["pic_name"] = $_GET['pic_name'];
             }
     ?>
+
+    <script type="text/javascript">
+    function myfunc() {
+        <?php 
+        $stmt = $db->prepare('DELETE FROM photos WHERE P_ID = :P_ID');
+        $stmt->bindValue(':P_ID', $_SESSION["P_ID"]);
+        $stmt->execute();
+
+        $url =  "display_photo.php";
+
+        header( "Location: $url" );
+        ?>
+    }
+    </script>
+
 </head>
     <body>
         <header>
@@ -51,7 +66,7 @@
             echo "</div><br>";
 
             echo "<input type=\"submit\" value=\"Save\"><br>";
-            echo "<input type=\"button\" onclick=\"delete_photo.php\" value=\"Delete\">";
+            echo "<input type=\"button\" onclick=\"myfunc()\" value=\"Delete\">";
             echo "</form>";
             ?>
         </main>
