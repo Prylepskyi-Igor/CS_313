@@ -41,16 +41,10 @@
             if (isset($_GET['user'])) {
                 $user_name = $_GET['user'];
 
+                // add user to the database
                 $stmt = $db->prepare('INSERT INTO users (user_name, create_date) VALUES(:user_name, CURDATE())');
                 $stmt->bindValue(':user_name', $user_name);
                 $stmt->execute();
-
-                $stmt = $mysqli->prepare("SELECT MAX(A_ID) FROM albums");
-                $stmt->execute();
-
-                /* bind variables to prepared statement */
-                $stmt->bind_result($id);
-                $_SESSION["newId"] = $id;
 
                 $stmt->closeCursor();
             }
