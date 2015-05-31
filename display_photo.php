@@ -39,7 +39,7 @@
         	<?php 
             echo "<form action=\"display_photo.php\" method=\"get\">";
 
-            echo "<h1 class=\"page_header\"><input type=\"text\" name=\"pic_name\" value=\"" . $_SESSION["pic_name"] . "\"></input></h1>"
+            echo "<h1 class=\"page_header\"><input type=\"text\" name=\"pic_name\" value=\"" . $_SESSION["pic_name"] . "\"></input></h1>";
 
             echo "<div id=\"single_photo\">";
             echo "<img src=\"" . $_SESSION["pic_path"] . "\"/><br>";
