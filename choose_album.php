@@ -45,9 +45,9 @@
                 $stmt->execute();
 
                 // copy A_ID from albums table to users table
-                $stmt = $db->prepare('UPDATE users SET A_ID = :newId');
-                $stmt->bindValue(':newId', $_SESSION["user_id"]);
-                $stmt->execute();
+                //$stmt = $db->prepare('UPDATE users SET A_ID = :newId');
+                //$stmt->bindValue(':newId', $_SESSION['user_id']);
+                //$stmt->execute();
 
                 // extract last album id from the database
                 //$stmt = $db->prepare("SELECT MAX(A_ID) FROM albums");
@@ -62,7 +62,7 @@
                 //$stmt->closeCursor();
             }
 
-            foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE A_ID = ' . $_SESSION['A_ID']) as $row)
+            foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE A_ID = 1') as $row)
             {
                 echo "<a href=\"choose_album.php?A_ID=" . $row['A_ID'] . "\">" . $row['album_name'] . "</a><br>";
             }
