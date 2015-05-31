@@ -38,7 +38,7 @@
                 header( "Location: $url" );
             }
 
-            if (isset($_GET['user_id'])) {
+            //if (isset($_GET['user_id'])) {
                 echo $album_name . "   " . $_SESSION["user_id"] . "<br>";
 
                 // insert album into the database
@@ -61,7 +61,7 @@
                 //$stmt->execute();
 
                 //$stmt->closeCursor();
-            }
+            //}
 
             foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE ') as $row)
             {
