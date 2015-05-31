@@ -15,16 +15,33 @@
     <body>
         <header class="page_header">
             <?php 
-            echo "<h1><input type=\"text\" value=\"" . $_SESSION["pic_name"] . "\"></input></h1>"
+            echo "<h1><input type=\"text\" name=\"pic_name\" value=\"" . $_SESSION["pic_name"] . "\"></input></h1>"
             ?>
         </header>
 
         <main>
         	<?php 
+            echo "<form action=\"display_photo.php\" method=\"get\">";
+
             echo "<div id=\"single_photo\">";
             echo "<img src=\"" . $_SESSION["pic_path"] . "\"/><br>";
-            echo "<p>" . $_SESSION["pic_note"] . "</p>";
-            echo "</div>";
+            echo "<p><input type=\"text\" name=\"pic_note\" value=\"" . $_SESSION["pic_note"] . "\"></input></p>";
+            echo "</div><br>";
+
+            echo "  <input type=\"Save Changes\">";
+            echo "</form>";
+
+            if (isset($_GET['pic_note'])) {
+                $stmt = $db->prepare('UPDATE photos SET photo_note = :photo_note');
+                $stmt->bindValue(':photo_note', $_GET['pic_note']);
+                $stmt->execute();
+            }
+
+            if (isset($_GET['pic_name'])) {
+                $stmt = $db->prepare('UPDATE photos SET photo_name = :photo_name');
+                $stmt->bindValue(':photo_name', $_GET['pic_name']);
+                $stmt->execute();
+            }
             ?>
         </main>
 
