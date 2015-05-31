@@ -45,7 +45,7 @@
                 $stmt->bindValue(':user_name', $user_name);
                 $stmt->execute();
 
-                $stmt = $mysqli->prepare("SELECT MAX(A_ID) FROM albums"));
+                $stmt = $mysqli->prepare("SELECT MAX(A_ID) FROM albums");
                 $stmt->execute();
 
                 /* bind variables to prepared statement */
