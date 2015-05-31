@@ -46,6 +46,14 @@
                 $stmt->bindValue(':user_name', $user_name);
                 $stmt->execute();
 
+                // extract last user id from the database
+                $stmt = $mysqli->prepare("SELECT MAX(user_id) FROM user");
+                $stmt->execute();
+                $stmt->bind_result($id);
+
+                // store user id into session variable
+                $_SESSION["newId"] = $id;
+
                 $stmt->closeCursor();
             }
 

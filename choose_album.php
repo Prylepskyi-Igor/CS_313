@@ -49,7 +49,8 @@
                 $stmt->bindValue(':album_name', $album_name);
                 $stmt->execute();
 
-                $stmt = $db->prepare("INSERT INTO users (A_ID) SELECT A_ID FROM albums WHERE A_ID = MAX(A_ID)");
+                $stmt = $db->prepare("INSERT INTO users (A_ID) SELECT A_ID FROM albums WHERE user_id = :newId");
+                $stmt->bindValue(':newId', $U_ID);
                 $stmt->execute();
 
                 // extract last album id from the database
