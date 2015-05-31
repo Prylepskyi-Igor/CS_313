@@ -59,7 +59,7 @@
 
             foreach ($db->query('SELECT user_name, A_ID FROM users') as $row)
             {
-                echo "<a href=\"user_login.php?A_ID=" . $row['A_ID'] . "\">" . $row['user_name'] . "</a><br>";
+                echo "<a href=\"user_login.php?A_ID=" . $row['newId'] . "\">" . $row['user_name'] . "</a><br>";
             }
 
             echo "<form action=\"user_login.php\" method=\"get\">";
