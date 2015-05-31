@@ -11,6 +11,10 @@
     <?php 
         session_start();
 
+        require("dbConnector.php");
+
+        $db = loadDatabase();
+
         if (isset($_GET['pic_note'])) {
                 $stmt = $db->prepare('UPDATE photos SET photo_note = :photo_note');
                 $stmt->bindValue(':photo_note', $_GET['pic_note']);
@@ -46,7 +50,8 @@
             echo "<p><input type=\"text\" name=\"pic_note\" value=\"" . $_SESSION["pic_note"] . "\"></input></p>";
             echo "</div><br>";
 
-            echo "<input type=\"submit\" value=\"Save Changes\">";
+            echo "<input type=\"submit\" value=\"Save\"><br>";
+            echo "<input type=\"button\" onclick=\"delete_photo.php\" value=\"Delete\">";
             echo "</form>";
             ?>
         </main>

@@ -32,11 +32,12 @@
 					echo "<p class=\"page_header\">" . $row['album_note'] . "</p>";
 				}
 
-	        	foreach ($db->query('SELECT photo_path, photo_note, photo_name FROM photos WHERE A_ID = ' . $_SESSION["A_ID"]) as $row)
+	        	foreach ($db->query('SELECT photo_path, photo_note, photo_name, P_ID FROM photos WHERE A_ID = ' . $_SESSION["A_ID"]) as $row)
 				{
 					$_SESSION["pic_note"] = $row['photo_note'];
 					$_SESSION["pic_name"] = $row['photo_name'];
 					$_SESSION["pic_path"] = $row['photo_path'];
+                    $_SESSION["P_ID"] = $row['P_ID'];
 
 					echo "<a href=\"display_photo.php\"><img class=\"photos\" href=\"" . $row['photo_path'] . "\" src=\"" . $row['photo_path'] . "\" width=\"400px\" length=\"300px\" /></a>";
 				}
