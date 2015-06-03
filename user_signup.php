@@ -37,7 +37,7 @@
                 $stmt->closeCursor();
             }
 
-            echo "<form action=\"user_login.php\" method=\"get\">";
+            echo "<form action=\"user_signup.php\" method=\"get\">";
             echo "  New User: <input type=\"text\" name=\"user_name\"><br>";
             echo "  New Password: <input type=\"text\" name=\"user_password\"><br>";
             echo "  <input type=\"submit\">";

@@ -40,10 +40,14 @@
                         
                         header( "Location: $url" );
                     }
-                    else
-                        echo "Login error!<br>";
+                    else {
+                        echo "Signup error!<br>";
+                        goto exit_db_loop;
+                    }
                 }
             }
+
+            exit_db_loop:
 
             echo "<form action=\"user_login.php\" method=\"get\">";
             echo "  User: <input type=\"text\" name=\"user_name\"><br>";
