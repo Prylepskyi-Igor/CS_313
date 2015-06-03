@@ -40,6 +40,8 @@
                         
                         header( "Location: $url" );
                     }
+                    else
+                        echo "Login error!<br>";
                 }
             }
 
