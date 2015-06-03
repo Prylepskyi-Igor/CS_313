@@ -22,6 +22,7 @@
                     <a href="user_login.php">PHP DB Access</a><br>
                     <a href="tra-05.php">Scripture Database Connect</a><br>
                     <a href="user_login.php">PHP DB Modification</a>
+                    <a href="user_login.php">Project</a>
                 </td>
             </table>
         </main>

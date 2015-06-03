@@ -35,6 +35,17 @@
                 $stmt->execute();
 
                 $stmt->closeCursor();
+
+                ob_start(); 
+
+                $url =  "user_login.php";
+
+                while (ob_get_status()) 
+                {
+                ob_end_clean();
+                }
+                        
+                header( "Location: $url" );
             }
 
             echo "<form action=\"user_signup.php\" method=\"get\">";
