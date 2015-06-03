@@ -30,7 +30,7 @@
                 {
                     $passwordHash = password_hash($_GET['user_password'], PASSWORD_DEFAULT);
 
-                    if (password_verify($row['user_password'], $passwordHash) && $row['user_name'] === $_GET['user_name']) {
+                    if (password_verify($passwordHash, $row['user_password']) && $row['user_name'] === $_GET['user_name']) {
                         $_SESSION["user_id"] = $_GET['user_id'];
 
                         ob_start(); 
@@ -44,7 +44,7 @@
                         
                         header( "Location: $url" );
                     } else {
-                        echo "Signup error!<br>";
+                        echo "Signin error!<br>";
                         goto exit_db_loop;
                     }
                 }
