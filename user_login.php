@@ -23,40 +23,31 @@
 
         <main>
         	<?php 
-            if (isset($_GET['user_id'])) {
-                $_SESSION["user_id"] = $_GET['user_id'];
-
-                ob_start(); 
-
-                $url =  "choose_album.php";
-
-                while (ob_get_status()) 
+            if (isset($_GET['user_name']) && isset($_GET['user_password'])) {
+                foreach ($db->query('SELECT user_name, user_password, user_id FROM users') as $row)
                 {
-                    ob_end_clean();
+                    if($row['user_name'] === $_GET['user_name'] && $row['user_password'] === $_GET['user_password']) {
+                        $_SESSION["user_id"] = $_GET['user_id'];
+
+                        ob_start(); 
+
+                        $url =  "choose_album.php";
+
+                        while (ob_get_status()) 
+                        {
+                            ob_end_clean();
+                        }
+                        
+                        header( "Location: $url" );
+                    }
                 }
-                
-                header( "Location: $url" );
-            }
-            
-            if (isset($_GET['user'])) {
-                $user_name = $_GET['user'];
-
-                // add user to the database
-                $stmt = $db->prepare('INSERT INTO users (user_name, create_date) VALUES(:user_name, CURDATE())');
-                $stmt->bindValue(':user_name', $user_name);
-                $stmt->execute();
-
-                $stmt->closeCursor();
-            }
-
-            foreach ($db->query('SELECT user_name, user_id FROM users') as $row)
-            {
-                echo "<a href=\"user_login.php?user_id=" . $row['user_id'] . "\">" . $row['user_name'] . "</a><br>";
             }
 
             echo "<form action=\"user_login.php\" method=\"get\">";
-            echo "  New User: <input type=\"text\" name=\"user\">";
-            echo "  <input type=\"submit\">";
+            echo "  User: <input type=\"text\" name=\"user_name\"><br>";
+            echo "  Password: <input type=\"text\" name=\"user_password\"><br>";
+            echo "  <input type=\"submit\"><br>";
+            echo "  <a href=\"user_signup.php\">Signup</a>";
             echo "</form>";
             ?>
         </main>
