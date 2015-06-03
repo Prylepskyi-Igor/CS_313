@@ -30,6 +30,8 @@
                 $user_name = $_GET['user_name'];
                 $passwordHash = password_hash($_GET['user_password'], PASSWORD_DEFAULT);
 
+                echo $passwordHash."<br>";
+
                 // add user to the database
                 $stmt = $db->prepare('INSERT INTO users (user_name, user_password, create_date) VALUES(:user_name, :user_password, CURDATE())');
                 $stmt->bindValue(':user_name', $user_name);
