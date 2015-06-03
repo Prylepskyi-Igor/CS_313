@@ -28,9 +28,7 @@
             if (isset($_GET['user_name']) && isset($_GET['user_password'])) {
                 foreach ($db->query('SELECT user_name, user_password, user_id FROM users') as $row)
                 {
-                    $passwordHash = password_hash($_GET['user_password'], PASSWORD_DEFAULT);
-
-                    if (password_verify($passwordHash, $row['user_password']) && $row['user_name'] === $_GET['user_name']) {
+                    if (password_verify($_GET['user_password'], $row['user_password']) && $row['user_name'] === $_GET['user_name']) {
                         $_SESSION["user_id"] = $_GET['user_id'];
 
                         ob_start(); 
@@ -45,7 +43,6 @@
                         header( "Location: $url" );
                     } else {
                         echo "Signin error!<br>";
-                        echo $passwordHash . $row['user_password'];
                         goto exit_db_loop;
                     }
                 }
