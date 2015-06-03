@@ -31,6 +31,7 @@
                 $passwordHash = password_hash($_GET['user_password'], PASSWORD_DEFAULT);
 
                 echo $passwordHash."<br>";
+                goto a;
 
                 // add user to the database
                 $stmt = $db->prepare('INSERT INTO users (user_name, user_password, create_date) VALUES(:user_name, :user_password, CURDATE())');
@@ -51,7 +52,7 @@
                         
                 header( "Location: $url" );
             }
-
+            a:
             echo "<form action=\"user_signup.php\" method=\"get\">";
             echo "  New User: <input type=\"text\" name=\"user_name\"><br>";
             echo "  New Password: <input type=\"password\" name=\"user_password\"><br>";
