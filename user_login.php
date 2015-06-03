@@ -9,6 +9,8 @@
     <title>Album</title>
 
     <?php 
+        require('password.php');
+
         session_start();
 
         require("dbConnector.php");
@@ -26,7 +28,9 @@
             if (isset($_GET['user_name']) && isset($_GET['user_password'])) {
                 foreach ($db->query('SELECT user_name, user_password, user_id FROM users') as $row)
                 {
-                    if($row['user_name'] === $_GET['user_name'] && $row['user_password'] === $_GET['user_password']) {
+                    $passwordHash = password_hash($_GET['user_password'], PASSWORD_DEFAULT);
+
+                    if (password_verify($row['user_password'], $passwordHash) && $row['user_name'] === $_GET['user_name']) {
                         $_SESSION["user_id"] = $_GET['user_id'];
 
                         ob_start(); 
@@ -39,8 +43,7 @@
                         }
                         
                         header( "Location: $url" );
-                    }
-                    else {
+                    } else {
                         echo "Signup error!<br>";
                         goto exit_db_loop;
                     }

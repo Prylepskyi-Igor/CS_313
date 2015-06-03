@@ -9,6 +9,8 @@
     <title>Album</title>
 
     <?php 
+        require('password.php');
+
         session_start();
 
         require("dbConnector.php");
@@ -28,10 +30,12 @@
                 $user_name = $_GET['user_name'];
                 $user_password = $_GET['user_password'];
 
+                $passwordHash = password_hash($user_password, PASSWORD_DEFAULT);
+
                 // add user to the database
                 $stmt = $db->prepare('INSERT INTO users (user_name, user_password, create_date) VALUES(:user_name, :user_password, CURDATE())');
                 $stmt->bindValue(':user_name', $user_name);
-                $stmt->bindValue(':user_password', $user_password);
+                $stmt->bindValue(':user_password', $passwordHash);
                 $stmt->execute();
 
                 $stmt->closeCursor();
