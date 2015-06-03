@@ -45,6 +45,7 @@
                         header( "Location: $url" );
                     } else {
                         echo "Signin error!<br>";
+                        echo $passwordHash . $row['user_password'];
                         goto exit_db_loop;
                     }
                 }
