@@ -52,7 +52,7 @@
 
             echo "<form action=\"user_signup.php\" method=\"get\">";
             echo "  New User: <input type=\"text\" name=\"user_name\"><br>";
-            echo "  New Password: <input type=\"text\" name=\"user_password\"><br>";
+            echo "  New Password: <input type=\"password\" name=\"user_password\"><br>";
             echo "  <input type=\"submit\">";
             echo "</form>";
             ?>

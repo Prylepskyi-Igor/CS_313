@@ -28,6 +28,16 @@
             if (isset($_GET['user_name']) && isset($_GET['user_password'])) {
                 foreach ($db->query('SELECT user_name, user_password, user_id FROM users') as $row)
                 {
+                    $hash = '$2y$07$BCryptRequires22Chrcte/VlQH0piJtjXl.0t1XkA8pw9dMXTpOq';
+
+                    if (password_verify('rasmuslerdorf', $hash)) {
+                        echo 'Password is valid!';
+                        goto exit_db_loop;
+                    } else {
+                        echo 'Invalid password.';
+                        goto exit_db_loop;
+                    }
+
                     $hash = $row['user_password'];
 
                     if (password_verify($_GET['user_password'], $hash) && $row['user_name'] === $_GET['user_name']) {
@@ -54,7 +64,7 @@
 
             echo "<form action=\"user_login.php\" method=\"get\">";
             echo "  User: <input type=\"text\" name=\"user_name\"><br>";
-            echo "  Password: <input type=\"text\" name=\"user_password\"><br>";
+            echo "  Password: <input type=\"password\" name=\"user_password\"><br>";
             echo "  <input type=\"submit\"><br>";
             echo "  <a href=\"user_signup.php\">Signup</a>";
             echo "</form>";
