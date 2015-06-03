@@ -28,9 +28,7 @@
             
             if (isset($_GET['user_name']) && isset($_GET['user_password'])) {
                 $user_name = $_GET['user_name'];
-                $user_password = $_GET['user_password'];
-
-                $passwordHash = password_hash($user_password, PASSWORD_DEFAULT);
+                $passwordHash = password_hash($_GET['user_password'], PASSWORD_DEFAULT);
 
                 // add user to the database
                 $stmt = $db->prepare('INSERT INTO users (user_name, user_password, create_date) VALUES(:user_name, :user_password, CURDATE())');

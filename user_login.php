@@ -28,7 +28,7 @@
             if (isset($_GET['user_name']) && isset($_GET['user_password'])) {
                 foreach ($db->query('SELECT user_name, user_password, user_id FROM users') as $row)
                 {
-                    if (password_verify($_GET['user_password'], $row['user_password']) && $row['user_name'] === $_GET['user_name']) {
+                    if (password_verify($_GET['user_password'], $row['user_password'])) {
                         $_SESSION["user_id"] = $_GET['user_id'];
 
                         ob_start(); 
