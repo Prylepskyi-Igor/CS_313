@@ -43,11 +43,14 @@
                 $stmt = $db->prepare('INSERT INTO albums (album_name, create_date) VALUES(:album_name, CURDATE())');
                 $stmt->bindValue(':album_name', $_GET['album_name']);
                 $stmt->execute();
+                $stmt->closeCursor();
 
                 // copy A_ID from albums table to users table
-                //$stmt = $db->prepare('UPDATE users SET A_ID = :newId');
-                //$stmt->bindValue(':newId', $_SESSION['user_id']);
-                //$stmt->execute();
+                $stmt = $db->prepare('UPDATE users SET A_ID = (SELECT A_ID FROM albums WHERE album_name = :album_name) WHERE user_id = :newId');
+                $stmt->bindValue(':album_name', $_GET['album_name']);
+                $stmt->bindValue(':newId', $_SESSION['user_id']);
+                $stmt->execute();
+                $stmt->closeCursor();
 
                 // extract last album id from the database
                 //$stmt = $db->prepare("SELECT MAX(A_ID) FROM albums");
@@ -59,7 +62,7 @@
                 //$stmt->bindValue(':A_ID', $newA_ID);
                 //$stmt->execute();
 
-                //$stmt->closeCursor();
+                
             }
 
             foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE A_ID = 1') as $row)
