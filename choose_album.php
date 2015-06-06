@@ -47,16 +47,17 @@
 
                 try {
                     // copy A_ID from albums table to users table
-                    $stmt2 = $db->prepare('UPDATE users SET A_ID = 20 WHERE users.user_id = 1');
-                    //$stmt2->bindValue(':album_name', $_GET['album_name']);
-                    //$stmt2->bindValue(':newId', $_SESSION['user_id']);
+                    $stmt2 = $db->prepare('UPDATE users SET A_ID = :a_id WHERE users.user_id = :user_id');
+                    $stmt2->bindValue(':a_id', $_SESSION["A_ID"]);
+                    $stmt2->bindValue(':user_id', $_SESSION['user_id']);
                     $stmt2->execute();
                     $stmt2->closeCursor();
 
                     if ($stmt2->execute()) {
-                        echo "Successfully updated Profile";
+                        echo "Successfully updated albums<br>";
                     } else {
                         print_r($stmt2->errorInfo()); // if any error is there it will be posted
+                        echo "<br>";
                     }
                 } catch (PDOException $e) {
                     display_db_error($e->getMessage());
