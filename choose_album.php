@@ -45,12 +45,24 @@
                 $stmt1->execute();
                 $stmt1->closeCursor();
 
-                // copy A_ID from albums table to users table
-                $stmt2 = $db->prepare('UPDATE users SET A_ID = 99 WHERE users.user_id = 1');
-                //$stmt2->bindValue(':album_name', $_GET['album_name']);
-                //$stmt2->bindValue(':newId', $_SESSION['user_id']);
-                $stmt2->execute();
-                $stmt2->closeCursor();
+                try {
+                    // copy A_ID from albums table to users table
+                    $stmt2 = $db->prepare('UPDATE users SET A_ID = 99 WHERE users.user_id = 1');
+                    //$stmt2->bindValue(':album_name', $_GET['album_name']);
+                    //$stmt2->bindValue(':newId', $_SESSION['user_id']);
+                    $stmt2->execute();
+                    $stmt2->closeCursor();
+                    
+                    if ($stmt2->execute()) {
+                        echo "Successfully updated Profile";
+                    } else {
+                        print_r($stmt2->errorInfo()); // if any error is there it will be posted
+                    }
+                } catch (PDOException $e) {
+                    display_db_error($e->getMessage());
+                   }
+
+                
 
                 // extract last album id from the database
                 //$stmt = $db->prepare("SELECT MAX(A_ID) FROM albums");
