@@ -40,16 +40,17 @@
 
             if (isset($_GET['album_name'])) {
                 // insert album into the database
-                $stmt = $db->prepare('INSERT INTO albums (album_name, create_date) VALUES(:album_name, CURDATE())');
-                $stmt->bindValue(':album_name', $_GET['album_name']);
-                $stmt->execute();
+                $stmt1 = $db->prepare('INSERT INTO albums (album_name, create_date) VALUES(:album_name, CURDATE())');
+                $stmt1->bindValue(':album_name', $_GET['album_name']);
+                $stmt1->execute();
+                $stmt1->closeCursor();
 
                 // copy A_ID from albums table to users table
-                $stmt = $db->query('UPDATE users SET A_ID = 2 WHERE user_id = 1');
-                $stmt->bindValue(':album_name', $_GET['album_name']);
-                $stmt->bindValue(':newId', $_SESSION['user_id']);
-                $stmt->execute();
-                $stmt->closeCursor();
+                $stmt2 = $db->prepare('UPDATE users SET A_ID = 2 WHERE user_id = 1');
+                //$stmt2->bindValue(':album_name', $_GET['album_name']);
+                //$stmt2->bindValue(':newId', $_SESSION['user_id']);
+                $stmt2->execute();
+                $stmt2->closeCursor();
 
                 // extract last album id from the database
                 //$stmt = $db->prepare("SELECT MAX(A_ID) FROM albums");
