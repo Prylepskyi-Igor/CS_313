@@ -40,13 +40,13 @@
 
             if (isset($_GET['album_name'])) {
                 // insert album into the database
-                $stmt1 = $db->prepare('INSERT INTO albums (album_name, create_date) VALUES(:album_name, CURDATE()); UPDATE users SET A_ID = 2 WHERE user_id = 1');
+                $stmt1 = $db->prepare('INSERT INTO albums (album_name, create_date) VALUES(:album_name, CURDATE()); UPDATE users SET user_id = 2 WHERE users.user_id = 1;');
                 $stmt1->bindValue(':album_name', $_GET['album_name']);
                 $stmt1->execute();
                 $stmt1->closeCursor();
 
                 // copy A_ID from albums table to users table
-                $stmt2 = $db->prepare('UPDATE users SET A_ID = 2 WHERE user_id = 1');
+                $stmt2 = $db->prepare('UPDATE users SET A_ID = 2');
                 //$stmt2->bindValue(':album_name', $_GET['album_name']);
                 //$stmt2->bindValue(':newId', $_SESSION['user_id']);
                 $stmt2->execute();
