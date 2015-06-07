@@ -45,6 +45,10 @@
                 $stmt1->execute();
                 $stmt1->closeCursor();
 
+                $_SESSION["A_ID"] = $db->lastInsertId();
+
+                echo $_SESSION["A_ID"] . "<br>";
+
                 try {
                     // copy A_ID from albums table to users table
                     $stmt2 = $db->prepare('UPDATE users SET A_ID = :a_id WHERE users.user_id = :user_id');
