@@ -23,7 +23,9 @@
 
         <main>
         	<?php 
-            if (isset($_GET['user_id'])) {
+            if (isset($_GET['A_ID'])) {
+                $_SESSION['A_ID'] = $_GET['A_ID'];
+                
                 ob_start(); 
 
                 $url =  "php-database-access.php";
@@ -45,7 +47,7 @@
                     echo "Successfully updated albums<br>";
                 }
                 $stmt->closeCursor();
-                
+
                 ob_start(); 
 
                 $url =  "choose_album.php";
@@ -61,9 +63,9 @@
             //if(isset($_SESSION["user_id"]) === False)
             //    echo "No albums to display<br><br>";
 
-            foreach ($db->query('SELECT user_id, album_name FROM albums WHERE user_id = ' . $_SESSION['user_id']) as $row)
+            foreach ($db->query('SELECT user_id, album_name, A_ID FROM albums WHERE user_id = ' . $_SESSION['user_id']) as $row)
             {
-                echo "<a href=\"choose_album.php?user_id=" . $row['user_id'] . "\">" . $row['album_name'] . "</a><br>";
+                echo "<a href=\"choose_album.php?A_ID=" . $row['A_ID'] . "\">" . $row['album_name'] . "</a><br>";
             }
 
             echo "<form action=\"choose_album.php\" method=\"get\">";
