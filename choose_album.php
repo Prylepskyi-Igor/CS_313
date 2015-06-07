@@ -82,7 +82,10 @@
                 
             }
 
-            foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE A_ID = 1') as $row)
+            if(isset($_SESSION["A_ID"]) === False)
+                echo "No albums to display<br>";
+
+            foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE A_ID = ' . $_SESSION["A_ID"]) as $row)
             {
                 echo "<a href=\"choose_album.php?A_ID=" . $row['A_ID'] . "\">" . $row['album_name'] . "</a><br>";
             }
