@@ -20,6 +20,15 @@
 
             session_unset();
         }
+
+        if (isset($_GET['photo_path'])) {
+            $stmt = $db->prepare('UPDATE photos SET photo_path = :photo_path');
+            $stmt->bindValue(':photo_name', 'pics\\' . $_GET['pic_name'] . '.jpg');
+            $stmt->execute();
+            $stmt->closeCursor();
+
+            $_SESSION["pic_name"] = $_GET['pic_name'];
+        }
     ?>
     <title>Album</title>
 </head>
@@ -49,7 +58,10 @@
 
 					echo "<a href=\"display_photo.php\"><img class=\"photos\" href=\"" . $row['photo_path'] . "\" src=\"" . $row['photo_path'] . "\" width=\"400px\" length=\"300px\" /></a>";
 				}
-
+                echo "<form action=\"display_photo.php\" method=\"get\">";
+                echo "New Photo: <input type=\"text\" name=\"photo_path\">";
+                echo "<input type=\"submit\" value=\"Add Photo\"><br>";
+                echo "</form>";
         	?>
         </main>
 
