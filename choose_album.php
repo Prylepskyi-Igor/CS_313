@@ -53,7 +53,18 @@
                     }
                 } catch (PDOException $e) {
                     display_db_error($e->getMessage());
-                   }
+                }
+
+                ob_start(); 
+
+                $url =  "choose_album.php";
+
+                while (ob_get_status()) 
+                {
+                ob_end_clean();
+                }
+                        
+                header( "Location: $url" );
             }
 
             //if(isset($_SESSION["user_id"]) === False)

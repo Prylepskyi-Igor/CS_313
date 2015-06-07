@@ -48,9 +48,9 @@
                         goto exit_db_loop;
                     }
                 }
-            }
 
-            echo "Signin error!<br>";
+                echo "Signin error!<br>";
+            }
 
             exit_db_loop:
 
