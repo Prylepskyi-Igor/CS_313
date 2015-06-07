@@ -20,9 +20,9 @@
         <header class="page_header">
             <h1> Welcome, 
                 <?php 
-                foreach ($db->query('SELECT user_id FROM users WHERE user_id = ' . $_SESSION['user_id']) as $row)
+                foreach ($db->query('SELECT user_name FROM users WHERE user_id = ' . $_SESSION['user_id']) as $row)
                 {
-                    echo $row['user_id'];
+                    echo $row['user_name'];
                 }
             ?> . Please, choose your album:
             </h1>
