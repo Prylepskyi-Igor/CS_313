@@ -22,7 +22,7 @@
         }
 
         if (isset($_GET['photo_path'])) {
-            $stmt = $db->prepare('UPDATE photos SET photo_path = :photo_path');
+            $stmt = $db->prepare('INSERT INTO photos (photo_path) VALUES(:photo_path)');
             $stmt->bindValue(':photo_name', 'pics\\' . $_GET['pic_name'] . '.jpg');
             $stmt->execute();
             $stmt->closeCursor();

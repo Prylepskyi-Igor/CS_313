@@ -18,14 +18,21 @@
 </head>
     <body>
         <header class="page_header">
-            <h1>Please, select the album:</h1>
+            <h1> Welcome, 
+                <?php 
+                foreach ($db->query('SELECT user_id FROM users WHERE user_id = ' . $_SESSION['user_id']) as $row)
+                {
+                    echo $row['A_ID'];
+                }
+            ?> . Please, choose your album:
+            </h1>
         </header>
 
         <main>
         	<?php 
             if (isset($_GET['A_ID'])) {
                 $_SESSION['A_ID'] = $_GET['A_ID'];
-                
+
                 ob_start(); 
 
                 $url =  "php-database-access.php";
