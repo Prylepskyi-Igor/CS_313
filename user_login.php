@@ -30,8 +30,8 @@
                 {
                     $hash = $row['user_password'];
 
-                    //if (password_verify($_GET['user_password'], $hash) && $row['user_name'] === $_GET['user_name']) {
-                    if ($row['user_password'] === $_GET['user_password'] && $row['user_name'] === $_GET['user_name']) {
+                    if (password_verify($_GET['user_password'], $hash) && $row['user_name'] === $_GET['user_name']) {
+                    //if ($row['user_password'] === $_GET['user_password'] && $row['user_name'] === $_GET['user_name']) {
                         $_SESSION["user_id"] = $row['user_id'];
 
                         ob_start(); 
