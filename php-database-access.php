@@ -25,7 +25,7 @@
             $str = 'pics\\' . $_GET['photo_path'] . '.jpg';
             $stmt = $db->prepare('INSERT INTO photos (photo_path, A_ID) VALUES(:photo_path, :A_ID)');
             $stmt->bindValue(':photo_path', $str);
-            $stmt->bindValue(':A_ID', $_SESSION["A_ID");
+            $stmt->bindValue(':A_ID', $_SESSION["A_ID"]);
             $stmt->execute();
             $stmt->closeCursor();
         }
