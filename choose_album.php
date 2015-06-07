@@ -37,24 +37,15 @@
             }
 
             if (isset($_GET['album_name'])) {
-                try {
-                    // insert album into the database
-                    $stmt = $db->prepare('INSERT INTO albums (album_name, create_date, user_id) VALUES(:album_name, CURDATE(), :user_id)');
-                    $stmt->bindValue(':album_name', $_GET['album_name']);
-                    $stmt->bindValue(':user_id', $_SESSION['user_id']);
-                    $stmt->execute();
-                    $stmt->closeCursor();
-
-                    if ($stmt->execute()) {
-                        echo "Successfully updated albums<br>";
-                    } else {
-                        print_r($stmt2->errorInfo()); // if any error is there it will be posted
-                        echo "<br>";
-                    }
-                } catch (PDOException $e) {
-                    display_db_error($e->getMessage());
+                // insert album into the database
+                $stmt = $db->prepare('INSERT INTO albums (album_name, create_date, user_id) VALUES(:album_name, CURDATE(), :user_id)');
+                $stmt->bindValue(':album_name', $_GET['album_name']);
+                $stmt->bindValue(':user_id', $_SESSION['user_id']);
+                if ($stmt->execute()) {
+                    echo "Successfully updated albums<br>";
                 }
-
+                $stmt->closeCursor();
+                
                 ob_start(); 
 
                 $url =  "choose_album.php";
