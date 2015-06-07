@@ -23,9 +23,7 @@
 
         <main>
         	<?php 
-            if (isset($_GET['A_ID'])) {
-                $_SESSION["A_ID"] = $_GET['A_ID'];
-
+            if (isset($_GET['user_id'])) {
                 ob_start(); 
 
                 $url =  "php-database-access.php";
@@ -47,8 +45,6 @@
                     $stmt->execute();
                     $stmt->closeCursor();
 
-                    $_SESSION["A_ID"] = $db->lastInsertId();
-
                     if ($stmt->execute()) {
                         echo "Successfully updated albums<br>";
                     } else {
@@ -60,12 +56,12 @@
                    }
             }
 
-            if(isset($_SESSION["A_ID"]) === False)
-                echo "No albums to display<br><br>";
+            //if(isset($_SESSION["user_id"]) === False)
+            //    echo "No albums to display<br><br>";
 
-            foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE A_ID = ' . $_SESSION["A_ID"]) as $row)
+            foreach ($db->query('SELECT user_id, album_name FROM albums WHERE user_id = ' . $_SESSION['user_id']) as $row)
             {
-                echo "<a href=\"choose_album.php?A_ID=" . $row['A_ID'] . "\">" . $row['album_name'] . "</a><br>";
+                echo "<a href=\"choose_album.php?user_id=" . $row['user_id'] . "\">" . $row['album_name'] . "</a><br>";
             }
 
             echo "<form action=\"choose_album.php\" method=\"get\">";

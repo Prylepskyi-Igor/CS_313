@@ -26,14 +26,13 @@
         <main>
         	<?php 
             if (isset($_GET['user_name']) && isset($_GET['user_password'])) {
-                foreach ($db->query('SELECT user_name, user_password, user_id, A_ID FROM users') as $row)
+                foreach ($db->query('SELECT user_name, user_password, user_id FROM users') as $row)
                 {
                     $hash = $row['user_password'];
 
                     //if (password_verify($_GET['user_password'], $hash) && $row['user_name'] === $_GET['user_name']) {
                     if ($row['user_password'] === $_GET['user_password'] && $row['user_name'] === $_GET['user_name']) {
                         $_SESSION["user_id"] = $row['user_id'];
-                        $_SESSION["A_ID"] = $row['A_ID'];
 
                         ob_start(); 
 
