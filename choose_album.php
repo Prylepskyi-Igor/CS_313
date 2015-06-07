@@ -39,25 +39,17 @@
             }
 
             if (isset($_GET['album_name'])) {
-                // insert album into the database
-                $stmt1 = $db->prepare('INSERT INTO albums (album_name, create_date) VALUES(:album_name, CURDATE())');
-                $stmt1->bindValue(':album_name', $_GET['album_name']);
-                $stmt1->execute();
-                $stmt1->closeCursor();
-
-                $_SESSION["A_ID"] = $db->lastInsertId();
-
-                echo $_SESSION["A_ID"] . "<br>" . $_SESSION['user_id'] . "<br>";
-
                 try {
-                    // copy A_ID from albums table to users table
-                    $stmt2 = $db->prepare('UPDATE users SET A_ID = :a_id WHERE users.user_id = :user_id');
-                    $stmt2->bindValue(':a_id', $_SESSION["A_ID"]);
-                    $stmt2->bindValue(':user_id', $_SESSION['user_id']);
-                    $stmt2->execute();
-                    $stmt2->closeCursor();
+                    // insert album into the database
+                    $stmt = $db->prepare('INSERT INTO albums (album_name, create_date, user_id) VALUES(:album_name, CURDATE(), :user_id)');
+                    $stmt->bindValue(':album_name', $_GET['album_name']);
+                    $stmt->bindValue(':user_id', $_SESSION['user_id']);
+                    $stmt->execute();
+                    $stmt->closeCursor();
 
-                    if ($stmt2->execute()) {
+                    $_SESSION["A_ID"] = $db->lastInsertId();
+
+                    if ($stmt->execute()) {
                         echo "Successfully updated albums<br>";
                     } else {
                         print_r($stmt2->errorInfo()); // if any error is there it will be posted
@@ -66,24 +58,10 @@
                 } catch (PDOException $e) {
                     display_db_error($e->getMessage());
                    }
-
-                
-
-                // extract last album id from the database
-                //$stmt = $db->prepare("SELECT MAX(A_ID) FROM albums");
-                //$stmt->execute();
-                //$stmt->bind_result($id);
-
-                //$stmt = $db->prepare('INSERT INTO users (A_ID) VALUES(:newA_ID) WHERE user_id = :U_ID');
-                //$stmt->bindValue(':U_ID', $U_ID);
-                //$stmt->bindValue(':A_ID', $newA_ID);
-                //$stmt->execute();
-
-                
             }
 
             if(isset($_SESSION["A_ID"]) === False)
-                echo "No albums to display<br>";
+                echo "No albums to display<br><br>";
 
             foreach ($db->query('SELECT A_ID, album_name FROM albums WHERE A_ID = ' . $_SESSION["A_ID"]) as $row)
             {
