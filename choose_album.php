@@ -22,7 +22,7 @@
                 <?php 
                 foreach ($db->query('SELECT user_id FROM users WHERE user_id = ' . $_SESSION['user_id']) as $row)
                 {
-                    echo $row['A_ID'];
+                    echo $row['user_id'];
                 }
             ?> . Please, choose your album:
             </h1>
