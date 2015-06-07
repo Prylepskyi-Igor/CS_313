@@ -47,7 +47,7 @@
 
                 $_SESSION["A_ID"] = $db->lastInsertId();
 
-                echo $_SESSION["A_ID"] . "<br>";
+                echo $_SESSION["A_ID"] . "<br>" . $_SESSION['user_id'] . "<br>";
 
                 try {
                     // copy A_ID from albums table to users table
