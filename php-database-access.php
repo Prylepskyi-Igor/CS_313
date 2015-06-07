@@ -22,9 +22,9 @@
         }
 
         if (isset($_GET['photo_path'])) {
-            $str = 'pics\\' . $_GET['pic_name'] . '.jpg';
+            $str = 'pics\\' . $_GET['photo_path'] . '.jpg';
             $stmt = $db->prepare('INSERT INTO photos (photo_path) VALUES(:photo_path)');
-            $stmt->bindValue(':photo_name', 'pics\\' . $_GET['pic_name'] . '.jpg');
+            $stmt->bindValue(':photo_path', 'pics\\' . $_GET['photo_path'] . '.jpg');
             echo $str . "<br>";
             $stmt->execute();
             $stmt->closeCursor();
