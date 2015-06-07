@@ -45,12 +45,13 @@
                         }
                                 
                         header( "Location: $url" );
-                    } else {
-                        echo "Signin error!<br>";
+                        
                         goto exit_db_loop;
                     }
                 }
             }
+
+            echo "Signin error!<br>";
 
             exit_db_loop:
 
