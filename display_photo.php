@@ -32,7 +32,15 @@
 
             $_SESSION["pic_name"] = $_GET['pic_name'];
         }
-        
+
+        if (isset($_GET['photo_path'])) {
+            $stmt = $db->prepare('UPDATE photos SET photo_path = :photo_path');
+            $stmt->bindValue(':photo_name', 'pics\\' . $_GET['pic_name'] . '.jpg');
+            $stmt->execute();
+            $stmt->closeCursor();
+
+            $_SESSION["pic_name"] = $_GET['pic_name'];
+        }
     ?>
 
 </head>
@@ -51,9 +59,9 @@
             echo "<img src=\"" . $_SESSION["pic_path"] . "\"/><br>";
             echo "<p><textarea rows=\"8\" cols=\"50\" name=\"pic_note\">" . $_SESSION["pic_note"] . "</textarea></p>";
             echo "</div><br>";
-
+            echo "New Photo: <input type=\"text\" name=\"photo_path\">";
             echo "<input type=\"submit\" value=\"Save\"><br>";
-            echo "<input type=\"button\" onclick=\"location.href = 'php-database-access.php?delete=true';\" value=\"Delete\">";
+            echo "<input type=\"button\" onclick=\"location.href = 'php-database-access.php?delete=true';\" value=\"Delete\"><br><br>";
             echo "</form>";
             ?>
         </main>
