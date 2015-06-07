@@ -52,7 +52,7 @@
             echo "</div><br>";
             
             echo "<input type=\"submit\" value=\"Save\"><br>";
-            echo "<input type=\"button\" onclick=\"location.href = 'php-database-access.php?delete=true';\" value=\"Delete\"><br><br>";
+            echo "<input type=\"button\" onclick=\"location.href = 'php-database-access.php?delete=true';\" value=\"Delete\">";
             echo "</form>";
             ?>
         </main>
