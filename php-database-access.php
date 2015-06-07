@@ -22,12 +22,12 @@
         }
 
         if (isset($_GET['photo_path'])) {
+            $str = 'pics\\' . $_GET['pic_name'] . '.jpg';
             $stmt = $db->prepare('INSERT INTO photos (photo_path) VALUES(:photo_path)');
             $stmt->bindValue(':photo_name', 'pics\\' . $_GET['pic_name'] . '.jpg');
+            echo $str . "<br>";
             $stmt->execute();
             $stmt->closeCursor();
-
-            $_SESSION["pic_name"] = $_GET['pic_name'];
         }
     ?>
     <title>Album</title>
