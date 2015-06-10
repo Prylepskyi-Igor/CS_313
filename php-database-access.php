@@ -69,7 +69,7 @@
 					echo "<a href=\"display_photo.php\"><img class=\"photos\" href=\"" . $row['photo_path'] . "\" src=\"" . $row['photo_path'] . "\" width=\"400px\" length=\"300px\" /></a>";
 				}
                 echo "<br><br><form action=\"php-database-access.php\" method=\"get\">";
-                echo "New Photo: <input type=\"text\" name=\"photo_path\">";
+                echo "New Photo (choose between pic1 ... pic8): <input type=\"text\" name=\"photo_path\">";
                 echo "<input type=\"submit\" value=\"Add Photo\"><br>";
                 echo "</form>";
         	?>
